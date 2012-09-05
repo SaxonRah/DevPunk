@@ -3,6 +3,9 @@ DevPunk Is an attempt to combine alot of the flashpunk/punkui/ogmo level code / 
 
 Sorry if there are deleted comments or some changed code in some files, I do it for readability on my part as i dev, I'll update the files once i'm finished with the first revision
 This is not a final product im not  for damages ect.. ect..
+The goal of DevPunk is to one day create an easy interface with ActionScript/FlashPunk/PunkUI/Box2D to house PunkUI World Instancing.
+
+You can view the latest demo here [https://github.com/kgbkgb/DevPunk/blob/master/bin/OgmoFlashPunkUI.swf?raw=true]
 
 Thanks to everyone for FlashPunk, PunkUI, Ogmo Support, Code Snippets, [will edit more later]
 ChevyRay      -[happytrash@gmail.com]    Draknek       -[alan@draknek.org],
