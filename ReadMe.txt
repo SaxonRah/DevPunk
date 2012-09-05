@@ -6,7 +6,7 @@ DevPunk Is an attempt to combine alot of the flashpunk/punkui/ogmo level code /
 snippets into a gigantic lib to start from for noobies like myself. :] 
 Sorry if there are deleted comments or some changed code in some files.
 I do it for readability on my part as i dev, I'll update the files once i'm finished with the first revision
-This is not a final product im not  for damages ect.. ect.. 
+This is not a final product im not responsible for damages ect..ect..
 
 You can view the latest demo here [http://goo.gl/tMPBJ]
 
