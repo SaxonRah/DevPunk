@@ -9,6 +9,7 @@ This is not a final product im not  for damages ect.. ect..
 You can view the latest demo here [https://github.com/kgbkgb/DevPunk/blob/master/bin/OgmoFlashPunkUI.swf?raw=true]
 
 Thanks to everyone for FlashPunk, PunkUI, Ogmo Support, Code Snippets, [will edit more later]
+Credits
 ChevyRay      -[happytrash@gmail.com]    Draknek       -[alan@draknek.org],
 Zachary Lewis -[zacharylew.is]           Abel Toy      -[abel.toy@gmail.com], 
 Chris Kelly   -[cjke.7777@gmail.com] 	 Richard Marks -[ccpsceo@gmail.com], 
