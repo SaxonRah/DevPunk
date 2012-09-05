@@ -16,7 +16,7 @@ ChevyRay      -[happytrash@gmail.com]    Draknek       -[alan@draknek.org],
 Zachary Lewis -[zacharylew.is]           Abel Toy      -[abel.toy@gmail.com], 
 Chris Kelly   -[cjke.7777@gmail.com] 	 Richard Marks -[ccpsceo@gmail.com], 
 Alex Larioza  -[pixelsquidgames.net]     Noel Berry    -[thenberry@gmail.com],
-MaskedPixel   -[ikonone@gmail.com]       Reiss         -[flashpunk.net/forums/index.php?action=profile;u=166]
+MaskedPixel   -[ikonone@gmail.com]       Reiss         -[http://goo.gl/wJT9X]
 Erifdex       -[twitter.com/Erifdex]
 
 Henrique Lazarini aka "Ails" [ails.deviantart.com] for RPG ICONS
