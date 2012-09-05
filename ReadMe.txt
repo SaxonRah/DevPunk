@@ -18,4 +18,5 @@ Erifdex       -[twitter.com/Erifdex]
 
 Henrique Lazarini aka "Ails" [ails.deviantart.com] for RPG ICONS
 
-If you think you should be thanked with credits, let me know and email me at Robert Chubb - [paraboliclabs@gmail.com] I will add you as a contributor as well as credit with the proof you provide.
+If you think you should be thanked with credits, let me know and email me at [paraboliclabs@gmail.com] 
+I will add you as a contributor as well as credit with the proof you provide.
