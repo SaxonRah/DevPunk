@@ -62,22 +62,24 @@
 			
 			add(new PunkCombo(10, 372, 200, 28, ["Potion", "Hi Potion", "Ether"], this.onComboReleased));
 			
+			add(new PunkOptionWindow(450, 450, 200, 200, "Alert", "Is this PunkOptionWindow awesome? \nChoose your answer carefully...", true, new Array(new PunkOptionButton("Yes", yesClicked), new PunkOptionButton("No", noClicked))));
+			
             return;
         }// end function
 		
-		public function changeToBlankWorld(on:Boolean):void {
+		public function changeToBlankWorld(on:Boolean) : void {
 			if(!on) return;
 			PunkUI.skin = new YellowAfterlife;
 			FP.world = new BlankWorld;
 		}
 		
-		public function changeToMainWorld(on:Boolean):void {
+		public function changeToMainWorld(on:Boolean) : void {
 			if(!on) return;
 			PunkUI.skin = new RolpegeBlue;
 			FP.world = new MainWorld;
 		}
 		
-		public function changeToGameWorld(on:Boolean):void {
+		public function changeToGameWorld(on:Boolean) : void {
 			if(!on) return;
 			PunkUI.skin = new Elite;
 			FP.world = new GameWorld;
@@ -138,7 +140,6 @@
         }
 
         private function onComboReleased(param1:int) : void {
-			
             switch(param1) {
                 case 0: {
                     this._txt2.text = "x30: Recovers 100HP";
@@ -156,14 +157,22 @@
                     break;
                 }
             }
-            return;
-        }
+			return;
+		}
+		private function yesClicked() : void {
+			FP.console.log("Yes Clicked");
+			return;
+		}
 		
-		private function onUp() : void {
-        }
+		private function noClicked() : void {
+			FP.console.log("No Clicked");
+			return;
+		}
+		
+		public function onUp() : void {
+		}
 
-		private function onDown() : void {
-        }
-
+		public function onDown() : void {
+		}
     }
 }
