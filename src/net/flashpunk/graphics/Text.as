@@ -1,10 +1,9 @@
-﻿package net.flashpunk.graphics 
+﻿﻿package net.flashpunk.graphics 
 {
 	import flash.display.BitmapData;
 	import flash.text.TextField;
 	import flash.text.TextFormat;
 	import flash.text.TextLineMetrics;
-    import flash.text.AntiAliasType;
 
 	import net.flashpunk.FP;
 
@@ -77,8 +76,6 @@
 		 */
 		public function Text(text:String, x:Number = 0, y:Number = 0, options:Object = null, h:Number = 0)
 		{
-            _field.antiAliasType = AntiAliasType.ADVANCED;
-            _field.sharpness = 400;
 			_font = Text.font;
 			_size = Text.size;
 			_align = Text.align;
@@ -269,8 +266,8 @@
 			}
 			
 			_field.width = _width;
-			_textWidth = _field.textWidth + 4;
-			_textHeight = _field.textHeight + 4;
+			_field.width = _textWidth = Math.ceil(_field.textWidth + 4);
+			_field.height = _textHeight = Math.ceil(_field.textHeight + 4);
 			
 			if (resizable && (_textWidth > _width || _textHeight > _height))
 			{
