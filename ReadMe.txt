@@ -6,11 +6,11 @@ This is not a final product im not  for damages ect.. ect..
 
 Thanks to everyone for FlashPunk, PunkUI, Ogmo Support, Code Snippets, [will edit more later]
 ChevyRay      -[happytrash@gmail.com]    Draknek       -[alan@draknek.org],
-Zachary Lewis -[zacharylew.is] 			 Abel Toy      -[abel.toy@gmail.com], 
-Chris Kelly   -[cjke.7777@gmail.com] 	 Richard Marks -[ccpsceo@gmail.com], 
+Zachary Lewis -[zacharylew.is] 			     Abel Toy      -[abel.toy@gmail.com], 
+Chris Kelly   -[cjke.7777@gmail.com] 	   Richard Marks -[ccpsceo@gmail.com], 
 Alex Larioza  -[pixelsquidgames.net]     Noel Berry    -[thenberry@gmail.com],
 MaskedPixel   -[ikonone@gmail.com]       Reiss         -[flashpunk.net/forums/index.php?action=profile;u=166]
-Erifdex       -[http://twitter.com/Erifdex]
+Erifdex       -[twitter.com/Erifdex]
 
 Henrique Lazarini aka "Ails" [ails.deviantart.com] for RPG ICONS
 
