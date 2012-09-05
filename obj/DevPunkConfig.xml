@@ -22,12 +22,12 @@
     <omit-trace-statements>true</omit-trace-statements>
     <verbose-stacktraces>false</verbose-stacktraces>
     <source-path append="true">
-      <path-element>C:\Users\admin\Desktop\Flash\DevPunk\src</path-element>
+      <path-element>C:\Users\admin\Documents\GitHub\DevPunk\src</path-element>
       <path-element>C:\Program Files (x86)\FlashDevelop\Library\AS3\classes</path-element>
     </source-path>
   </compiler>
   <file-specs>
-    <path-element>C:\Users\admin\Desktop\Flash\DevPunk\src\Main.as</path-element>
+    <path-element>C:\Users\admin\Documents\GitHub\DevPunk\src\Main.as</path-element>
   </file-specs>
   <default-background-color>#000000</default-background-color>
   <default-frame-rate>60</default-frame-rate>

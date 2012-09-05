@@ -26,35 +26,41 @@
                 _loc_2 = _loc_2 + 1;
             }
 			
-            var _loc_3:* = new PunkWindow(10, 30, 200, 200, "Weapons");
-            var _loc_4:* = new PunkImageButton(10, 10, 180, 40, "Equip Sword", Assets.sword, this.onReleasedSword);
-            var _loc_5:* = new PunkImageButton(10, 60, 180, 40, "Equip Flail", Assets.flail, this.onReleasedFlail);
-            var _loc_6:* = new PunkImageButton(10, 110, 180, 40, "Equip Wand", Assets.wand, this.onReleasedWand);
-            this._txt = new PunkTextArea("No Equipment Selected", 220, 10, 260, 200);
-			
-            this._bar = new BarChart(10, 240, 200, 140, "Bar [y = x^2]", _loc_1);
-            this._line = new LineChart(220, 240, 260, 140, "Line [200 * sin(x/2) + 350]", []);
-			this._step = new Stepper(220, 410, 200, 30)
-			
-            this._txt2 = new PunkTextArea("x30: Recovers 100HP", 220, 370, 260, 30);
-            add(new PunkCombo(10, 372, 200, 28, ["Potion", "Hi Potion", "Ether"], this.onComboReleased));
-			
+			this._txt = new PunkTextArea("No Equipment Selected", 220, 10, 260, 200);
             add(this._txt);
-            add(this._txt2);
-			add(this._step);
-            add(this._bar);
-            add(this._line);
-			add(_loc_3);
-            _loc_3.add(_loc_4);
-            _loc_3.add(_loc_5);
-            _loc_3.add(_loc_6);
 			
-			var skinSelector:PunkWindow = new PunkWindow(500, 450, 200, 100, "Select a World");
+			this._txt2 = new PunkTextArea("x30: Recovers 100HP", 220, 370, 260, 30);
+            add(this._txt2);
+			
+			this._step = new Stepper(220, 410, 200, 30)
+			add(this._step);
+			
+			this._bar = new BarChart(10, 240, 200, 140, "Bar [y = x^2]", _loc_1);
+            add(this._bar);
+			
+			this._line = new LineChart(220, 240, 260, 140, "Line [200 * sin(x/2) + 350]", []);
+            add(this._line);
+			
+			var _loc_3:* = new PunkWindow(10, 30, 200, 200, "Weapons");
+            add(_loc_3);
+			
+			var _loc_4:* = new PunkImageButton(10, 10, 180, 40, "Equip Sword", Assets.sword, this.onReleasedSword);
+            _loc_3.add(_loc_4);
+			
+			var _loc_5:* = new PunkImageButton(10, 60, 180, 40, "Equip Flail", Assets.flail, this.onReleasedFlail);
+            _loc_3.add(_loc_5);
+			
+			var _loc_6:* = new PunkImageButton(10, 110, 180, 40, "Equip Wand", Assets.wand, this.onReleasedWand);
+			_loc_3.add(_loc_6);
+			
+			var skinSelector:PunkWindow = new PunkWindow(500, 250, 200, 100, "Select a World");
 			var sg:PunkRadioButtonGroup = new PunkRadioButtonGroup;
 			skinSelector.add(new PunkRadioButton(sg, "", 7, 5, 190, 25, PunkUI.skin is Elite, "BlankWorld", changeToBlankWorld));
 			skinSelector.add(new PunkRadioButton(sg, "", 7, 30, 190, 25, PunkUI.skin is Elite, "MainWorld", changeToMainWorld));
 			skinSelector.add(new PunkRadioButton(sg, "", 7, 55, 190, 25, PunkUI.skin is Elite, "GameWorld", changeToGameWorld));
 			add(skinSelector);
+			
+			add(new PunkCombo(10, 372, 200, 28, ["Potion", "Hi Potion", "Ether"], this.onComboReleased));
 			
             return;
         }// end function
@@ -86,14 +92,14 @@
             while (_loc_2 < 90) {
                 
                 _loc_1.push(400 * Math.sin(0.5 * _loc_2 + this.step) + 500);
-                _loc_2 = _loc_2 + _numberX;
+                _loc_2 = _loc_2 + 1;
 				
             }
 			
             this._line.data = _loc_1;
 			
 			super.update();
-        }// end function
+        }
 
         private function onReleasedSword() : void {
             this._txt.text = "";
@@ -105,7 +111,7 @@
             this._txt.text = this._txt.text + "\tCost:\t\t$45\n";
             this._txt.text = this._txt.text + "+------------------------+\n";
             return;
-        }// end function
+        }
 
         private function onReleasedFlail() : void {
             this._txt.text = "";
@@ -117,7 +123,7 @@
             this._txt.text = this._txt.text + "\tCost:\t\t$75\n";
             this._txt.text = this._txt.text + "+------------------------+\n";
             return;
-        }// end function
+        }
 
         private function onReleasedWand() : void {
             this._txt.text = "";
@@ -129,7 +135,7 @@
             this._txt.text = this._txt.text + "\tCost:\t\t$145\n";
             this._txt.text = this._txt.text + "+------------------------+\n";
             return;
-        }// end function
+        }
 
         private function onComboReleased(param1:int) : void {
 			
@@ -151,15 +157,13 @@
                 }
             }
             return;
-        }// end function
+        }
 		
 		private function onUp() : void {
-			_numberX = _numberX * this.step;
-        }// end function
+        }
 
 		private function onDown() : void {
-           _numberX = _numberX / this.step;
-        }// end function
+        }
 
     }
 }
