@@ -19,10 +19,10 @@
 			//FP.world = new BlankWorld();
 				// BlankWorld is an Blank world
 				
-			FP.world = new MainWorld();
+			//FP.world = new MainWorld();
 				// MainWorld is Cjke's PunkUI Demov2 
 				
-			//FP.world = new GameWorld();
+			FP.world = new GameWorld();
 				// GameWorld is an OgMo Level Test
             return;
         }
