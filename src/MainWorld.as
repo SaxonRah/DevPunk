@@ -60,9 +60,9 @@
 			
 			var skinSelector:PunkWindow = new PunkWindow(100, 100, 200, 100, "Select a Skin - Not working ? - Cutoff not working either");
 			var sg:PunkRadioButtonGroup = new PunkRadioButtonGroup;
-			skinSelector.add(new PunkRadioButton(sg, "", 7, 5, 190, 25, PunkUI.skin is RolpegeBlue, "YellowAfterlife", changeToYellowAfterlife));
+			skinSelector.add(new PunkRadioButton(sg, "", 7, 5, 190, 25, PunkUI.skin is YellowAfterlife, "YellowAfterlife", changeToYellowAfterlife));
 			skinSelector.add(new PunkRadioButton(sg, "", 7, 30, 190, 25, PunkUI.skin is RolpegeBlue, "RolpegeBlue", changeToRolpegeBlue));
-			skinSelector.add(new PunkRadioButton(sg, "", 7, 55, 190, 25, PunkUI.skin is RolpegeBlue, "Elite", changeToElite));
+			skinSelector.add(new PunkRadioButton(sg, "", 7, 55, 190, 25, PunkUI.skin is Elite, "Elite", changeToElite));
 			add(skinSelector);
 			
 			add(new PunkCombo(10, 372, 200, 28, ["Potion", "Hi Potion", "Ether"], this.onComboReleased));
@@ -73,17 +73,19 @@
 		public function changeToYellowAfterlife(on:Boolean) : void {
 			if (!on) return;
 			PunkUI.skin = new YellowAfterlife;
+			FP.world = new MainWorld;
 		}
 		
 		public function changeToRolpegeBlue(on:Boolean) : void {
 			if (!on) return;
 			PunkUI.skin = new RolpegeBlue;
+			FP.world = new MainWorld;
 		}
 		
 		public function changeToElite(on:Boolean) : void {
 			if (!on) return;
 			PunkUI.skin = new Elite;
-			
+			FP.world = new MainWorld;
 		}
 		
         override public function update() : void {
