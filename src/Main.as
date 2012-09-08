@@ -24,6 +24,16 @@
 				
 			FP.world = new GameWorld();
 				// GameWorld is an OgMo Level Test
+				
+			//FP.world = new BloomLevel();
+				// BloomLevel is a BloomLevel Test
+				
+			//FP.world = new BlurLevel();
+				// BlurLevel is a BlurLevel Test
+				
+			//FP.world = new BloomNBlur();
+				// BloomNBlur is a Bloom N Blur Level Test
+				
             return;
         }
 
