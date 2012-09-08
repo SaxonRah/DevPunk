@@ -58,7 +58,7 @@
 			var _loc_6:* = new PunkImageButton(10, 110, 180, 40, "Equip Wand", Assets.wand, this.onReleasedWand);
 			_loc_3.add(_loc_6);
 			
-			var skinSelector:PunkWindow = new PunkWindow(500, 250, 200, 100, "Select a Skin - Not working ?");
+			var skinSelector:PunkWindow = new PunkWindow(100, 100, 200, 100, "Select a Skin - Not working ? - Cutoff not working either");
 			var sg:PunkRadioButtonGroup = new PunkRadioButtonGroup;
 			skinSelector.add(new PunkRadioButton(sg, "", 7, 5, 190, 25, PunkUI.skin is RolpegeBlue, "YellowAfterlife", changeToYellowAfterlife));
 			skinSelector.add(new PunkRadioButton(sg, "", 7, 30, 190, 25, PunkUI.skin is RolpegeBlue, "RolpegeBlue", changeToRolpegeBlue));
@@ -71,18 +71,19 @@
         }// end function
 		
 		public function changeToYellowAfterlife(on:Boolean) : void {
-			if(!on) PunkUI.skin = new YellowAfterlife;
-			return;
+			if (!on) return;
+			PunkUI.skin = new YellowAfterlife;
 		}
 		
 		public function changeToRolpegeBlue(on:Boolean) : void {
-			if(!on) PunkUI.skin = new RolpegeBlue;
-			return;
+			if (!on) return;
+			PunkUI.skin = new RolpegeBlue;
 		}
 		
 		public function changeToElite(on:Boolean) : void {
-			if(!on) PunkUI.skin = new Elite;
-			return;
+			if (!on) return;
+			PunkUI.skin = new Elite;
+			
 		}
 		
         override public function update() : void {
