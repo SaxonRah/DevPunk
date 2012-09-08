@@ -24,7 +24,7 @@ package {
 			super();
 		}
 
-		override public function begin():void {
+		override public function begin() : void {
 			var rg:PunkRadioButtonGroup = new PunkRadioButtonGroup;
 			
 			add(button = new PunkButton(5, 5, 200, 25, "Button"));
@@ -48,37 +48,37 @@ package {
 			add(skinSelector);
 		}
 		
-		public function changeToYellowAfterlife(on:Boolean):void {
+		public function changeToYellowAfterlife(on:Boolean) : void {
 			if(!on) return;
 			PunkUI.skin = new YellowAfterlife;
 			FP.world = new Demo;
 		}
 		
-		public function changeToRolpegeBlue(on:Boolean):void {
+		public function changeToRolpegeBlue(on:Boolean) : void {
 			if(!on) return
 			PunkUI.skin = new RolpegeBlue;
 			FP.world = new Demo;
 		}
 		
-		public function changeToElite(on:Boolean):void {
+		public function changeToElite(on:Boolean) : void {
 			if(!on) return
 			PunkUI.skin = new Elite;
 			FP.world = new Demo;
 		}
 		
-		public function onPressed():void {
+		public function onPressed() : void {
 			button.label.text = "pressed";
 		}
 		
-		public function onReleased():void {
+		public function onReleased() : void {
 			button.label.text = "released";
 		}
 		
-		public function onEnter():void {
+		public function onEnter() : void {
 			button.label.text = "enter";
 		}
 		
-		public function onExit():void {
+		public function onExit() : void {
 			button.label.text = "exit";
 		}
 	}

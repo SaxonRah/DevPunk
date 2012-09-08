@@ -18,7 +18,7 @@ package {
 			graphic = G;
 		}
 		
-		override public function update():void {
+		override public function update() : void {
 			super.update();
 			
 			if (Input.check(Key.LEFT)) {

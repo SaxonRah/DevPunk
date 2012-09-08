@@ -1,11 +1,8 @@
-﻿package 
-{
+﻿package {
     import flash.geom.*;
     import net.flashpunk.graphics.*;
-	import GV;
 	
-    public class Assets extends Object
-    {
+    public class Assets extends Object {
 		[Embed(source = "../assets/34x34icons.png")] public static var icons:Class;
         public static var flail:Spritemap = new Spritemap(icons, 34, 34);
         public static var sword:Spritemap = new Spritemap(icons, 34, 34);
@@ -16,7 +13,7 @@
 		[Embed(source = "../assets/examplelevel.oel", mimeType = "application/octet-stream")]
 		public static const LVL_SAMPLE:Class;
 
-		// gfx
+		// gfx for PunkUIDemo
 		[Embed(source = "../assets/lofi_environment.png")]
 		public static const SPR_TILES:Class;
 		[Embed(source = "../assets/coin.png")]
@@ -24,8 +21,7 @@
 		[Embed(source = "../assets/player.png")]
 		public static const SPR_PLAYER:Class;
 
-        public function Assets()
-        {
+        public function Assets() {
             return;
         }// end function
 

@@ -27,7 +27,7 @@ package {
 		private var sw:int;
 		private var sh:int;
 
-		public function Preloader () {
+		public function Preloader() {
 			sw = stage.stageWidth;
 			sh = stage.stageHeight;
 
@@ -70,7 +70,7 @@ package {
 			}
 		}
 
-		public function onEnterFrame (e:Event): void {
+		public function onEnterFrame(e:Event) : void {
 			if (hasLoaded()) {
 				graphics.clear();
 				graphics.beginFill(BG_COLOR);
@@ -101,18 +101,18 @@ package {
 			text.x = (sw - text.width) * 0.5;
 		}
 
-		private function onMouseDown(e:MouseEvent):void {
+		private function onMouseDown(e:MouseEvent) : void {
 			if (hasLoaded()) {
 				stage.removeEventListener(MouseEvent.MOUSE_DOWN, onMouseDown);
 				startup();
 			}
 		}
 
-		private function hasLoaded (): Boolean {
+		private function hasLoaded(): Boolean {
 			return (loaderInfo.bytesLoaded >= loaderInfo.bytesTotal);
 		}
 
-		private function startup (): void {
+		private function startup() : void {
 			stage.removeEventListener(Event.ENTER_FRAME, onEnterFrame);
 
 			var mainClass:Class = getDefinitionByName(mainClassName) as Class;

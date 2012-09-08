@@ -1,4 +1,4 @@
-package {
+package net.flashpunk {
 	import net.flashpunk.Entity;
 	import net.flashpunk.FP;
 	import net.flashpunk.graphics.Graphiclist;
@@ -21,7 +21,7 @@ package {
 			this.xml = FP.getXML(rawData);
 		}
 		
-		override public function added():void {
+		override public function added() : void {
 			super.added();
 			
 			// load tiles

@@ -17,7 +17,7 @@ package {
 			graphic = new Image(Assets.SPR_COIN);
 		}
 		
-		override public function update():void {
+		override public function update() : void {
 			
 			if (collide("player", x, y)) {
 				

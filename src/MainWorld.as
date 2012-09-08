@@ -9,6 +9,7 @@
 		
         private var _txt:PunkTextArea;
         private var _txt2:PunkTextArea;
+		private var _ow:PunkOptionWindow;
         private var _bar:BarChart;
         private var _line:LineChart;
 		private var _step:Stepper;
@@ -32,6 +33,10 @@
 			this._txt2 = new PunkTextArea("x30: Recovers 100HP", 220, 370, 260, 30);
             add(this._txt2);
 			
+			this._ow = new PunkOptionWindow(450, 450, 200, 200, "PunkUI Option Window", "Awesome ? \nChoose carefully...", true, 
+							new Array(new PunkOptionButton("Yes", yesClicked), new PunkOptionButton("No", noClicked)));
+			add(this._ow);
+			
 			this._step = new Stepper(220, 410, 200, 30)
 			add(this._step);
 			
@@ -53,36 +58,31 @@
 			var _loc_6:* = new PunkImageButton(10, 110, 180, 40, "Equip Wand", Assets.wand, this.onReleasedWand);
 			_loc_3.add(_loc_6);
 			
-			var skinSelector:PunkWindow = new PunkWindow(500, 250, 200, 100, "Select a World");
+			var skinSelector:PunkWindow = new PunkWindow(500, 250, 200, 100, "Select a Skin - Not working ?");
 			var sg:PunkRadioButtonGroup = new PunkRadioButtonGroup;
-			skinSelector.add(new PunkRadioButton(sg, "", 7, 5, 190, 25, PunkUI.skin is Elite, "BlankWorld", changeToBlankWorld));
-			skinSelector.add(new PunkRadioButton(sg, "", 7, 30, 190, 25, PunkUI.skin is Elite, "MainWorld", changeToMainWorld));
-			skinSelector.add(new PunkRadioButton(sg, "", 7, 55, 190, 25, PunkUI.skin is Elite, "GameWorld", changeToGameWorld));
+			skinSelector.add(new PunkRadioButton(sg, "", 7, 5, 190, 25, PunkUI.skin is RolpegeBlue, "YellowAfterlife", changeToYellowAfterlife));
+			skinSelector.add(new PunkRadioButton(sg, "", 7, 30, 190, 25, PunkUI.skin is RolpegeBlue, "RolpegeBlue", changeToRolpegeBlue));
+			skinSelector.add(new PunkRadioButton(sg, "", 7, 55, 190, 25, PunkUI.skin is RolpegeBlue, "Elite", changeToElite));
 			add(skinSelector);
 			
 			add(new PunkCombo(10, 372, 200, 28, ["Potion", "Hi Potion", "Ether"], this.onComboReleased));
 			
-			add(new PunkOptionWindow(450, 450, 200, 200, "Alert", "Is this PunkOptionWindow awesome? \nChoose your answer carefully...", true, new Array(new PunkOptionButton("Yes", yesClicked), new PunkOptionButton("No", noClicked))));
-			
             return;
         }// end function
 		
-		public function changeToBlankWorld(on:Boolean) : void {
-			if(!on) return;
-			PunkUI.skin = new YellowAfterlife;
-			FP.world = new BlankWorld;
+		public function changeToYellowAfterlife(on:Boolean) : void {
+			if(!on) PunkUI.skin = new YellowAfterlife;
+			return;
 		}
 		
-		public function changeToMainWorld(on:Boolean) : void {
-			if(!on) return;
-			PunkUI.skin = new RolpegeBlue;
-			FP.world = new MainWorld;
+		public function changeToRolpegeBlue(on:Boolean) : void {
+			if(!on) PunkUI.skin = new RolpegeBlue;
+			return;
 		}
 		
-		public function changeToGameWorld(on:Boolean) : void {
-			if(!on) return;
-			PunkUI.skin = new Elite;
-			FP.world = new GameWorld;
+		public function changeToElite(on:Boolean) : void {
+			if(!on) PunkUI.skin = new Elite;
+			return;
 		}
 		
         override public function update() : void {
@@ -161,6 +161,7 @@
 		}
 		private function yesClicked() : void {
 			FP.console.log("Yes Clicked");
+			this.remove(_ow);
 			return;
 		}
 		
