@@ -10,7 +10,7 @@ I'm doing this as a side project so don't expect a whole lot.
 
 You can view the latest demo here [http://goo.gl/tMPBJ]
 
-Thanks to everyone for FlashPunk, PunkUI, Ogmo Support, Code Snippets, [will edit more later]
+Thanks to everyone for FlashPunk, PunkUI, Ogmo Support, Bloom and Blur Punk & Code Snippets -- [will add more later]
 Credits
 ChevyRay      -[happytrash@gmail.com]    Draknek       -[alan@draknek.org],
 Zachary Lewis -[zacharylew.is]           Abel Toy      -[abel.toy@gmail.com], 
