@@ -13,7 +13,7 @@
         public function Main() {
             super(800, 600, 60, false);
 			
-           //FP.world = new Demo();
+            //FP.world = new Demo();
 				// Demo is a PunkUI Test
 				
 			//FP.world = new BlankWorld();
@@ -34,6 +34,10 @@
 			//FP.world = new BloomNBlur();
 				// BloomNBlur is a Bloom N Blur Level Test
 				
+			//FP.world = new WorldOne();
+				// WorldOne Transitions ! :D
+				
+			FP.console.enable();
             return;
         }
 

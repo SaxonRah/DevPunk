@@ -30,9 +30,12 @@ package
 		/* data */
 		private var _wrappedGraphic:BloomWrapper;
 		
+		public function BloomLevel() {
+		FP.log("Bloom World Started");	
+		}
+		
 		override public function begin():void
 		{
-			FP.console.enable();
 			
 			//set the layer and color of the bloom, and add it to the world
 			_bloom.layer = -1;

@@ -29,9 +29,12 @@ package
 		/* motion blur */
 		private var _blur:BlurCanvas = new BlurCanvas(BLUR);
 		
+		public function BlurLevel() {
+		FP.log("Blur World Started");	
+		}
+		
 		override public function begin():void
 		{
-			FP.console.enable();
 			
 			//set the blur to be under the particles, and add it to the world
 			_blur.layer = 1;

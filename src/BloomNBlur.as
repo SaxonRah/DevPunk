@@ -13,7 +13,8 @@ package  {
 	import net.flashpunk.utils.Key;
 	
 	public class BloomNBlur extends World {
-/* time between particle creation */
+		
+		/* time between particle creation */
 		public static const MIN_LAPSED_CREATE_TIME:Number = 0.05;
 		public static const MAX_ADDITIONAL_CREATE_TIME:Number = 0.025;
 		
@@ -37,8 +38,11 @@ package  {
 		/* data */
 		private var _wrappedGraphic:BloomWrapper;
 		
+		public function BloomNBlur() {
+		FP.log("BloomNBlur Started");	
+		}
+		
 		override public function begin() : void {
-			FP.console.enable();
 			
 			//set the layer and color of the bloom, and add it to the world
 			_bloom.layer = -1;
@@ -57,7 +61,7 @@ package  {
 			var txt:Entity = new Entity();
 			var img:Text;
 			Text.size = 48;
-			img = new Text("BloomNBlurPunk");
+			img = new Text("Bloom N Blur Punk");
 			txt.graphic = _wrappedGraphic = new BloomWrapper(img);
 			txt.x = FP.width / 2 - img.width / 2;
 			txt.y = FP.height / 2 - img.height / 2;

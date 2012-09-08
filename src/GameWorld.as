@@ -12,7 +12,7 @@ package {
 		public var txt:*= new PunkTextArea("Coins Collected : " + Coin.getGameCoin(), 400, 400, 175, 50);
 		
 		public function GameWorld() {
-				FP.console.enable();
+			FP.log("Game World Started");
 		}
 		
 		override public function begin() : void {

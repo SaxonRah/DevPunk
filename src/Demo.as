@@ -21,7 +21,7 @@ package {
 		public var button:PunkButton;
 		
 		public function Demo() {
-			super();
+			FP.log("Demo World Started");
 		}
 
 		override public function begin() : void {
