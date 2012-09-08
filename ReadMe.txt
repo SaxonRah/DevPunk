@@ -1,6 +1,6 @@
 DevPunk RoadMap [http://i.imgur.com/XaW2l.png]
 DevPunk Album [http://imgur.com/a/D9oI7#0]
-The eventual goal of DevPunk is to use it as a prototyping toolset to test new functionality for systems and subsystems in other languages. 
+The goal of DevPunk is to use it as a prototyping tool to test new functionality for systems in other languages. 
 DevPunk Is an attempt to combine alot of the flashpunk/punkui/ogmo level code / 
 snippets from the fourms and blogs around the net into a gigantic lib to start from for noobies like myself. :] 
 Sorry if there are deleted comments or some changed code in some files. - 
