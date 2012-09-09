@@ -1,5 +1,5 @@
-DevPunk RoadMap [http://i.imgur.com/XaW2l.png]
-DevPunk Album [http://imgur.com/a/D9oI7#0]
+You can view the latest demo here [http://goo.gl/Y10Zs]
+
 The goal of DevPunk is to use it as a prototyping tool to test new functionality for systems in other languages. 
 DevPunk Is an attempt to combine alot of the flashpunk/punkui/ogmo level code / 
 snippets from the fourms and blogs around the net into a gigantic lib to start from for noobies like myself. :] 
@@ -7,8 +7,6 @@ Sorry if there are deleted comments or some changed code in some files. -
 This is not a final product im not responsible for damages ect..ect..
 I could careless about legal stuff, I'm not trying to make money or destroy your pc. 
 I'm doing this as a side project so don't expect a whole lot.
-
-You can view the latest demo here [http://goo.gl/Y10Zs]
 
 Thanks to everyone for FlashPunk, PunkUI, Ogmo Support, Bloom and Blur Punk & Code Snippets -- [will add more later]
 Credits
