@@ -1,4 +1,4 @@
-You can view the latest demo here [http://goo.gl/Y10Zs]
+You can view the latest demo here [http://goo.gl/Ed1oe]
 
 Press a number key to change the worlds, when changing transitions will activate.
 	1*  | Demo       - PunkUI Demo
