@@ -8,8 +8,8 @@ Press a number key to change the worlds, when changing transitions will activate
 	5*  | BloomWorld - Bloom Demo
 	6*  | BlurWorld  - Blur Demo
 	7*  | BloomNBlur - Bloom N Blur Demo
-	8*  | WorldOne   - Transition Test WorldOne
-	9*  | WorldTwo   - Transition Test WorldTwo
+	8*  | WorldOne   - Transition Test WorldOne - arrowKeys, space, z - Move, Jump, Press Z
+	9*  | WorldTwo   - Transition Test WorldTwo - arrowKeys, space, z - Move, Jump, Press Z
 
 The goal of DevPunk is to use it as a prototyping tool to test new functionality for systems in other languages. 
 DevPunk Is an attempt to combine alot of the flashpunk/punkui/ogmo level code / 
