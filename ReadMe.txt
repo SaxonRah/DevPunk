@@ -1,17 +1,15 @@
 You can view the latest demo here [http://goo.gl/Y10Zs]
 
 Press a number key to change the worlds, when changing transitions will activate.
-
-      1*  | Demo       - PunkUI Demo
-  		2*  | BlankWorld - BlankWorld Skin Changes dependant on Demo Skin selection box
-			3*  | MainWorld  - PunkUI Demo2 - Slightly Broken still mostly works
-			4*  | GameWorld  - arrowKeys - Collect Coins & WIN!
-			5*  | BloomWorld - Bloom Demo
-			6*  | BlurWorld  - Blur Demo
-			7*  | BloomNBlur - Bloom N Blur Demo
-			8*  | WorldOne   - Transition Test WorldOne
-			9*  | WorldTwo   - Transition Test WorldTwo
-
+	1*  | Demo       - PunkUI Demo
+	2*  | BlankWorld - BlankWorld Skin Changes dependant on Demo Skin selection box
+	3*  | MainWorld  - PunkUI Demo2 - Slightly Broken still mostly works
+	4*  | GameWorld  - arrowKeys - Collect Coins & WIN!		
+	5*  | BloomWorld - Bloom Demo
+	6*  | BlurWorld  - Blur Demo
+	7*  | BloomNBlur - Bloom N Blur Demo
+	8*  | WorldOne   - Transition Test WorldOne
+	9*  | WorldTwo   - Transition Test WorldTwo
 
 The goal of DevPunk is to use it as a prototyping tool to test new functionality for systems in other languages. 
 DevPunk Is an attempt to combine alot of the flashpunk/punkui/ogmo level code / 
