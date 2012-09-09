@@ -26,7 +26,7 @@ package demos
 			img.scale = 2;
 			addGraphic(img);
 			
-			_player = new SidePlayer(200, 130);
+			_player = new SidePlayer(400, 0);
 			add(_player);
 		}
 		

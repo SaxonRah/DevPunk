@@ -26,7 +26,7 @@
 			 * WorldOne
 			 * WorldTwo
 			 */
-			FP.world = new GameWorld();
+			FP.world = new WorldOne();
 				
 			FP.console.enable();
             return;
