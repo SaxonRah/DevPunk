@@ -1,4 +1,4 @@
-package
+package demos 
 {
 	import flash.display.BitmapData;
 	import flash.geom.Point;
@@ -8,13 +8,13 @@ package
 	 * ...
 	 * @author Reiss
 	 */
-	public class BlurredGraphic extends Graphic
+	public class BlurWrapper extends Graphic
 	{
 		private var _blurCanvas:BitmapData;
 		private var _graphic:Graphic;
-		public var parent:BlurCanvas;
+		public var parent:MotionBlur;
 		
-		public function BlurredGraphic(g:Graphic, m:BlurCanvas, autoStart:Boolean = true) 
+		public function BlurWrapper(g:Graphic, m:MotionBlur, autoStart:Boolean = true) 
 		{
 			super();
 			_graphic = g;
@@ -22,9 +22,6 @@ package
 			visible = g.visible;
 			relative = g.relative;
 			parent = m;
-			
-			x = g.x;
-			y = g.y;
 			
 			if(autoStart)
 				_blurCanvas = m.buffer;

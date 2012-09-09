@@ -1,83 +1,83 @@
-package  
-{
-	import flash.display.*;
+package demos {
 	import net.flashpunk.*;
-	import net.flashpunk.graphics.*;
-	import net.flashpunk.utils.*;
+    import punk.ui.*;
+    import punk.ui.skins.*;
+	import net.flashpunk.World;
+	import net.flashpunk.utils.Input;
+	import net.flashpunk.utils.Key;
+	import demos.Assets;
+	import demos.Coin;
 	import punk.transition.*;
 	import punk.transition.effects.*;
 	
-	/**
-	 * @author GIT:		cjke 
-	 * @author Mail:	cjke.7777@gmail.com
-	 */	
-	public class WorldTwo extends World 
-	{
-		[Embed(source="../assets/map2.png")]
-		private var GFX_MAP:Class;
+	public class GameWorld extends World {
+		public var txt:*= new PunkTextArea("Coins Collected : " + Coin.getGameCoin(), 400, 400, 175, 50);
 		
-		private var _player:SidePlayer;
-		
-		public function WorldTwo() 
-		{
-			FP.log("World Two Started");			
-			
-			var img:Image = new Image(GFX_MAP);
-			img.scale = 2;
-			addGraphic(img);
-			
-			_player = new SidePlayer(200, 130);
-			add(_player);
+		public function GameWorld() {
+			FP.log("Game World Started");
+			Coin.setGameCoin();
 		}
 		
-		override public function update():void 
-		{
+		override public function begin() : void {
+			super.begin();
+			PunkUI.skin = new Elite();
+			add(txt);
+			
+			add(new Level(Assets.LVL_SAMPLE));
+			
+		}
+		override public function update() : void {
+			this.txt.text = "Coins Collected : " + Coin.getGameCoin();
+			if (Coin.getGameCoin() >=8) {
+				this.txt.text = "You've Won!!!\nCoins Collected : " + Coin.getGameCoin();
+			}
+			
 			// Check which Key has been pressed
 			if(Input.released(Key.DIGIT_1))
 			{
-				Transition.to(WorldOne, 
+				Transition.to(Demo, 
 					new StarIn({track:"player"}), 
 					new StarOut({track:"player"})
 				);			
 			}
 			else if(Input.released(Key.DIGIT_2))
 			{
-				Transition.to(WorldOne, 
+				Transition.to(BlankWorld, 
 					new StarIn({color:0xFF06925f, duration:2}), 
 					new StarOut({color:0xFF06925f, duration:4})
 				);			
 			}
 			else if(Input.released(Key.DIGIT_3))
 			{
-				Transition.to(WorldOne, 
+				Transition.to(MainWorld, 
 					new CircleIn({track:"player"}), 
 					new CircleOut({track:"player"})
 				);			
 			}
 			else if(Input.released(Key.DIGIT_4))
 			{
-				Transition.to(WorldOne, 
+				Transition.to(GameWorld, 
 					new CircleIn({duration:1, color:0x99993333}), 
 					new CircleOut({duration:0.5})
 				);							
 			}
 			else if(Input.released(Key.DIGIT_5))
 			{				
-				Transition.to(WorldOne, 
+				Transition.to(BloomLevel, 
 					new FadeIn({duration:4}), 
 					new FadeOut({duration:6, color:0xFF334455})
 				);			
 			}
 			else if(Input.released(Key.DIGIT_6))
 			{
-				Transition.to(WorldOne, 
+				Transition.to(BlurLevel, 
 					new StripeFadeOut(), 
 					new StripeFadeIn()
 				);
 			}
 			else if(Input.released(Key.DIGIT_7))
 			{
-				Transition.to(null, 
+				Transition.to(BloomNBlur, 
 					new BlurOut(), 
 					new BlurIn(), 
 					{onOutComplete:onBlurOutComplete, onInComplete:onBlurInComplete}
@@ -92,7 +92,7 @@ package
 			}
 			else if(Input.released(Key.DIGIT_9))
 			{
-				Transition.to(WorldOne, 
+				Transition.to(WorldTwo, 
 					new FlipOut(), 
 					new FlipIn()
 				);
@@ -106,10 +106,6 @@ package
 			}
 			
 			super.update();
-					
-			FP.camera.x = _player.x - FP.halfWidth;
-			FP.camera.y = _player.y - FP.halfHeight;
-			FP.clampInRect(FP.camera, 0, 0, 1024 - FP.width, 512 - FP.height);				
 		}
 		
 		private function onBlurOutComplete():void 
@@ -122,11 +118,5 @@ package
 			trace("Blur In done!");
 		}
 		
-		public function get player():Entity 
-		{
-			return _player;
-		}
-		
 	}
-
 }

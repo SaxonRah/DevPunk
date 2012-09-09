@@ -1,4 +1,4 @@
-package  
+package demos 
 {
 	import net.flashpunk.Entity;
 	import net.flashpunk.FP;

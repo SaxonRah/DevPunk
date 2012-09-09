@@ -1,11 +1,11 @@
-package
+package demos 
 {
 	import net.flashpunk.Entity;
 	import net.flashpunk.graphics.Spritemap;
 
 	public class SidePlayer extends Entity
 	{
-		[Embed(source = '../assets/swordguy.png')]
+		[Embed(source = '../../assets/swordguy.png')]
 		private const SWORDGUY:Class;
 
 		public var sprSwordguy:Spritemap = new Spritemap(SWORDGUY, 48, 32);

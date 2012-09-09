@@ -1,9 +1,17 @@
-﻿package {
+﻿package demos {
 	
     import net.flashpunk.*;
     import punk.ui.*;
     import punk.ui.skins.*;
-	import Assets;
+	import demos.Assets;
+	import punk.transition.*;
+	import punk.transition.effects.*;
+	import flash.display.*;
+	import net.flashpunk.*;
+	import net.flashpunk.graphics.*;
+	import net.flashpunk.utils.*;
+	import punk.transition.*;
+	import punk.transition.effects.*;
 
     public class MainWorld extends World {
 		
@@ -59,7 +67,7 @@
 			var _loc_6:* = new PunkImageButton(10, 110, 180, 40, "Equip Wand", Assets.wand, this.onReleasedWand);
 			_loc_3.add(_loc_6);
 			
-			var skinSelector:PunkWindow = new PunkWindow(100, 100, 200, 100, "Select a Skin - Not working ? - Cutoff not working either");
+			var skinSelector:PunkWindow = new PunkWindow(200, 140, 200, 100, "Select a Skin - Not working ? - Cutoff not working either");
 			var sg:PunkRadioButtonGroup = new PunkRadioButtonGroup;
 			skinSelector.add(new PunkRadioButton(sg, "", 7, 5, 190, 25, PunkUI.skin is YellowAfterlife, "YellowAfterlife", changeToYellowAfterlife));
 			skinSelector.add(new PunkRadioButton(sg, "", 7, 30, 190, 25, PunkUI.skin is RolpegeBlue, "RolpegeBlue", changeToRolpegeBlue));
@@ -104,8 +112,91 @@
 			
             this._line.data = _loc_1;
 			
+			// Check which Key has been pressed
+			if(Input.released(Key.DIGIT_1))
+			{
+				Transition.to(Demo, 
+					new StarIn({track:"player"}), 
+					new StarOut({track:"player"})
+				);			
+			}
+			else if(Input.released(Key.DIGIT_2))
+			{
+				Transition.to(BlankWorld, 
+					new StarIn({color:0xFF06925f, duration:2}), 
+					new StarOut({color:0xFF06925f, duration:4})
+				);			
+			}
+			else if(Input.released(Key.DIGIT_3))
+			{
+				Transition.to(MainWorld, 
+					new CircleIn({track:"player"}), 
+					new CircleOut({track:"player"})
+				);			
+			}
+			else if(Input.released(Key.DIGIT_4))
+			{
+				Transition.to(GameWorld, 
+					new CircleIn({duration:1, color:0x99993333}), 
+					new CircleOut({duration:0.5})
+				);							
+			}
+			else if(Input.released(Key.DIGIT_5))
+			{				
+				Transition.to(BloomLevel, 
+					new FadeIn({duration:4}), 
+					new FadeOut({duration:6, color:0xFF334455})
+				);			
+			}
+			else if(Input.released(Key.DIGIT_6))
+			{
+				Transition.to(BlurLevel, 
+					new StripeFadeOut(), 
+					new StripeFadeIn()
+				);
+			}
+			else if(Input.released(Key.DIGIT_7))
+			{
+				Transition.to(BloomNBlur, 
+					new BlurOut(), 
+					new BlurIn(), 
+					{onOutComplete:onBlurOutComplete, onInComplete:onBlurInComplete}
+				);
+			}			
+			else if(Input.released(Key.DIGIT_8))
+			{
+				Transition.to(WorldOne, 
+					new PixelateOut(), 
+					new PixelateIn()
+				);
+			}
+			else if(Input.released(Key.DIGIT_9))
+			{
+				Transition.to(WorldTwo, 
+					new FlipOut(), 
+					new FlipIn()
+				);
+			}
+			else if(Input.released(Key.DIGIT_0))
+			{
+				Transition.to(WorldOne, 
+					new RotoZoomOut(), 
+					new RotoZoomIn()
+				);
+			}
+			
 			super.update();
         }
+		
+		private function onBlurOutComplete():void 
+		{
+			trace("Blur Out done!");
+		}		
+		
+		private function onBlurInComplete():void 
+		{
+			trace("Blur In done!");
+		}
 
         private function onReleasedSword() : void {
             this._txt.text = "";

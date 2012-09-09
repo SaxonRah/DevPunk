@@ -5,6 +5,7 @@ package punk.ui
 	import punk.ui.skin.PunkSkin;
 	import punk.ui.skin.PunkSkinImage;
 	import punk.ui.skins.*;
+	import demos.Assets;
 	
 	/**
 	 * ...

@@ -4,6 +4,7 @@ package net.flashpunk {
 	import net.flashpunk.graphics.Graphiclist;
 	import net.flashpunk.graphics.Tilemap;
 	import net.flashpunk.masks.Grid;
+	import demos.*;
 
 	public class Level extends Entity {
 		private var xml:XML;

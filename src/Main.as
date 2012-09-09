@@ -1,6 +1,7 @@
 ﻿package {
 	// Imports
 	import net.flashpunk.*;
+	import demos.*;
 	
 	// Preloader
 	[Frame(factoryClass = "Preloader")]
@@ -13,29 +14,19 @@
         public function Main() {
             super(800, 600, 60, false);
 			
-            //FP.world = new Demo();
-				// Demo is a PunkUI Test
-				
-			//FP.world = new BlankWorld();
-				// BlankWorld is an Blank world
-				
-			//FP.world = new MainWorld();
-				// MainWorld is Cjke's PunkUI Demov2 
-				
+			// Start on Any of the worlds 
+			/*
+			 * Demo 
+			 * BlankWorld
+			 * MainWorld
+			 * GameWorld
+			 * BloomWorld
+			 * BlurWorld
+			 * BloomNBlur
+			 * WorldOne
+			 * WorldTwo
+			 */
 			FP.world = new GameWorld();
-				// GameWorld is an OgMo Level Test
-				
-			//FP.world = new BloomLevel();
-				// BloomLevel is a BloomLevel Test
-				
-			//FP.world = new BlurLevel();
-				// BlurLevel is a BlurLevel Test
-				
-			//FP.world = new BloomNBlur();
-				// BloomNBlur is a Bloom N Blur Level Test
-				
-			//FP.world = new WorldOne();
-				// WorldOne Transitions ! :D
 				
 			FP.console.enable();
             return;

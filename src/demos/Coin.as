@@ -1,8 +1,8 @@
-package {
+package demos {
 	import net.flashpunk.Entity;
 	import net.flashpunk.FP;
 	import net.flashpunk.graphics.Image;
-	import Assets;
+	import demos.Assets;
 
 	public class Coin extends Entity {
 		
@@ -30,6 +30,9 @@ package {
 		}
 		public static function getGameCoin() : Number {
 			return Coin.gameCoin;
+		}
+		public static function setGameCoin() : Number {
+			return Coin.gameCoin = 0;
 		}
 	}
 }

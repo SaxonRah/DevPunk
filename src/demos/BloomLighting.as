@@ -1,4 +1,4 @@
-package  
+package demos 
 {
 	import flash.display.BitmapData;
 	import flash.display.BlendMode;

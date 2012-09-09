@@ -1,4 +1,4 @@
-package  
+package demos 
 {
 	import flash.display.*;
 	import net.flashpunk.*;
@@ -11,23 +11,23 @@ package
 	 * @author GIT:		cjke 
 	 * @author Mail:	cjke.7777@gmail.com
 	 */	
-	public class WorldOne extends World 
+	public class WorldTwo extends World 
 	{
-		[Embed(source="../assets/map1.png")]
+		[Embed(source="../../assets/map2.png")]
 		private var GFX_MAP:Class;
 		
-		private var _player:SidePlayer;		
+		private var _player:SidePlayer;
 		
-		public function WorldOne() 
+		public function WorldTwo() 
 		{
-			FP.log("World One Started");
+			FP.log("World Two Started");			
 			
 			var img:Image = new Image(GFX_MAP);
 			img.scale = 2;
-			addGraphic(img);	
-				
-			_player = new SidePlayer(200, 390);
-			add(_player);	
+			addGraphic(img);
+			
+			_player = new SidePlayer(200, 130);
+			add(_player);
 		}
 		
 		override public function update():void 
@@ -35,49 +35,49 @@ package
 			// Check which Key has been pressed
 			if(Input.released(Key.DIGIT_1))
 			{
-				Transition.to(WorldTwo, 
+				Transition.to(Demo, 
 					new StarIn({track:"player"}), 
 					new StarOut({track:"player"})
 				);			
 			}
 			else if(Input.released(Key.DIGIT_2))
 			{
-				Transition.to(WorldTwo, 
+				Transition.to(BlankWorld, 
 					new StarIn({color:0xFF06925f, duration:2}), 
 					new StarOut({color:0xFF06925f, duration:4})
 				);			
 			}
 			else if(Input.released(Key.DIGIT_3))
 			{
-				Transition.to(WorldTwo, 
+				Transition.to(MainWorld, 
 					new CircleIn({track:"player"}), 
 					new CircleOut({track:"player"})
 				);			
 			}
 			else if(Input.released(Key.DIGIT_4))
 			{
-				Transition.to(WorldTwo, 
+				Transition.to(GameWorld, 
 					new CircleIn({duration:1, color:0x99993333}), 
 					new CircleOut({duration:0.5})
 				);							
 			}
 			else if(Input.released(Key.DIGIT_5))
 			{				
-				Transition.to(WorldTwo, 
+				Transition.to(BloomLevel, 
 					new FadeIn({duration:4}), 
 					new FadeOut({duration:6, color:0xFF334455})
 				);			
 			}
 			else if(Input.released(Key.DIGIT_6))
 			{
-				Transition.to(WorldTwo, 
+				Transition.to(BlurLevel, 
 					new StripeFadeOut(), 
 					new StripeFadeIn()
 				);
 			}
 			else if(Input.released(Key.DIGIT_7))
 			{
-				Transition.to(null, 
+				Transition.to(BloomNBlur, 
 					new BlurOut(), 
 					new BlurIn(), 
 					{onOutComplete:onBlurOutComplete, onInComplete:onBlurInComplete}
@@ -85,7 +85,7 @@ package
 			}			
 			else if(Input.released(Key.DIGIT_8))
 			{
-				Transition.to(WorldTwo, 
+				Transition.to(WorldOne, 
 					new PixelateOut(), 
 					new PixelateIn()
 				);
@@ -99,7 +99,7 @@ package
 			}
 			else if(Input.released(Key.DIGIT_0))
 			{
-				Transition.to(WorldTwo, 
+				Transition.to(WorldOne, 
 					new RotoZoomOut(), 
 					new RotoZoomIn()
 				);
@@ -109,10 +109,9 @@ package
 					
 			FP.camera.x = _player.x - FP.halfWidth;
 			FP.camera.y = _player.y - FP.halfHeight;
-			FP.clampInRect(FP.camera, 0, 0, 1024 - FP.width, 512 - FP.height);	
+			FP.clampInRect(FP.camera, 0, 0, 1024 - FP.width, 512 - FP.height);				
 		}
 		
-		// Examples of callbacks
 		private function onBlurOutComplete():void 
 		{
 			trace("Blur Out done!");
@@ -129,4 +128,5 @@ package
 		}
 		
 	}
+
 }
