@@ -1,18 +1,29 @@
-package demos
+package demos.lighting
 {
 	import flash.geom.Rectangle;
+	import flash.geom.Point;
 	import net.flashpunk.graphics.Backdrop;
 	import net.flashpunk.World;
 	import net.flashpunk.Entity;
 	import net.flashpunk.FP;
 	import net.flashpunk.utils.Input;
 	import net.flashpunk.utils.Key;
-	import flash.geom.Point;
 	import net.flashpunk.utils.Draw;
 	import net.flashpunk.utils.*;
-	import demos.Assets;
 	import punk.transition.*;
 	import punk.transition.effects.*;
+	
+	import demos.*;
+	import demos.Assets;
+	import demos.bloomnblur.*;
+	import demos.bloomnblur.bloom.*;
+	import demos.bloomnblur.blur.*;
+	import demos.gravityemit.*;
+	import demos.lighting.*;
+	import demos.ogmolevel.*;
+	import demos.platformer.*;
+	import demos.punkui.*;
+	import demos.tinting.*;
 	
 	/**
 	 * ...

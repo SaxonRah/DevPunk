@@ -1,4 +1,4 @@
-package demos {
+package demos.lighting {
 	import flash.display.BitmapData;
 	import flash.display.BlendMode;
 	import flash.geom.ColorTransform;

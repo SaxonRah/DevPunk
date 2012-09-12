@@ -4,13 +4,15 @@
     import net.flashpunk.graphics.*;
 	
     public class Assets extends Object {
+		
+		// PunkUI stuff
 		[Embed(source = "../../assets/34x34icons.png")] public static var icons:Class;
         public static var flail:Spritemap = new Spritemap(icons, 34, 34);
         public static var sword:Spritemap = new Spritemap(icons, 34, 34);
         public static var wand:Spritemap = new Spritemap(icons, 34, 34);
         public static var down:Spritemap = new Spritemap(icons, 34, 34);
 		
-		// levels
+		// Ogmo levels
 		[Embed(source = "../../assets/examplelevel.oel", mimeType = "application/octet-stream")]
 		public static const LVL_SAMPLE:Class;
 
@@ -27,6 +29,13 @@
 		public static const GFX_LightLVL:Class;
 		[Embed(source = "../../assets/light.png")]
 		public static const GFX_Light:Class;
+		
+		
+		// Platformer gfx
+		[Embed(source="../../assets/map1.png")]
+		public static const GFX_MAP:Class;
+		[Embed(source = '../../assets/swordguy.png')]
+		public static const SWORDGUY:Class;
 		
         public function Assets() {
             return;

@@ -1,8 +1,7 @@
-﻿package demos {
+﻿package demos.platformer {
 
     import net.flashpunk.*;
     import net.flashpunk.graphics.*;
-	import demos.Player_SWORDGUY;
 
     public class PlayerSWDGUY extends Entity {
 

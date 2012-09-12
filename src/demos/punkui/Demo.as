@@ -1,7 +1,11 @@
-package demos {
+package demos.punkui {
+	
+	import flash.display.*;
 	import net.flashpunk.FP;
 	import net.flashpunk.World;
-	
+	import net.flashpunk.*;
+	import net.flashpunk.graphics.*;
+	import net.flashpunk.utils.*;
 	import punk.ui.PunkButton;
 	import punk.ui.PunkLabel;
 	import punk.ui.PunkPasswordField;
@@ -16,12 +20,20 @@ package demos {
 	import punk.ui.skins.YellowAfterlife;
 	import punk.ui.skins.Elite;
 	import punk.ui.skin.*;
-	import flash.display.*;
-	import net.flashpunk.*;
-	import net.flashpunk.graphics.*;
-	import net.flashpunk.utils.*;
 	import punk.transition.*;
 	import punk.transition.effects.*;
+	
+	import demos.*;
+	import demos.Assets;
+	import demos.bloomnblur.*;
+	import demos.bloomnblur.bloom.*;
+	import demos.bloomnblur.blur.*;
+	import demos.gravityemit.*;
+	import demos.lighting.*;
+	import demos.ogmolevel.*;
+	import demos.platformer.*;
+	import demos.punkui.*;
+	import demos.tinting.*;
 	
 	public class Demo extends World {
 		public var button:PunkButton;

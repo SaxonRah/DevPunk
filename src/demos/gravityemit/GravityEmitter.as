@@ -1,4 +1,4 @@
-package demos {
+package demos.gravityemit {
 	
 	import flash.display.*;
     import net.flashpunk.*;

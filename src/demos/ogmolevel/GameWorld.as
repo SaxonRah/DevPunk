@@ -1,17 +1,28 @@
-package demos {
+package demos.ogmolevel {
+	
 	import net.flashpunk.*;
-    import punk.ui.*;
-    import punk.ui.skins.*;
 	import net.flashpunk.World;
 	import net.flashpunk.utils.Input;
 	import net.flashpunk.utils.Key;
-	import demos.Assets;
-	import demos.Coin;
+    import punk.ui.*;
+    import punk.ui.skins.*;
 	import punk.transition.*;
 	import punk.transition.effects.*;
 	
+	import demos.*;
+	import demos.Assets;
+	import demos.bloomnblur.*;
+	import demos.bloomnblur.bloom.*;
+	import demos.bloomnblur.blur.*;
+	import demos.gravityemit.*;
+	import demos.lighting.*;
+	import demos.ogmolevel.*;
+	import demos.platformer.*;
+	import demos.punkui.*;
+	import demos.tinting.*;
+	
 	public class GameWorld extends World {
-		public var txt:*= new PunkTextArea("Coins Collected : " + Coin.getGameCoin(), 400, 400, 175, 50);
+		public var txtA:*= new PunkTextArea("Coins Collected : " + Coin.getGameCoin(), 400, 400, 175, 50);
 		
 		public function GameWorld() {
 			FP.log("Game World Started");
@@ -21,15 +32,15 @@ package demos {
 		override public function begin() : void {
 			super.begin();
 			PunkUI.skin = new Elite();
-			add(txt);
+			add(txtA);
 			
 			add(new Level(Assets.LVL_SAMPLE));
 			
 		}
 		override public function update() : void {
-			this.txt.text = "Coins Collected : " + Coin.getGameCoin();
+			this.txtA.text = "Coins Collected : " + Coin.getGameCoin();
 			if (Coin.getGameCoin() >=8) {
-				this.txt.text = "You've Won!!!\nCoins Collected : " + Coin.getGameCoin();
+				this.txtA.text = "You've Won!!!\nCoins Collected : " + Coin.getGameCoin();
 			}
 			
 			// Check which Key has been pressed
@@ -118,7 +129,6 @@ package demos {
 					new PixelateIn()
 				);
 			}
-			
 			
 			super.update();
 			

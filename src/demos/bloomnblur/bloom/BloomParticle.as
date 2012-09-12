@@ -1,4 +1,4 @@
-package demos 
+package demos.bloomnblur.bloom 
 {
 	import net.flashpunk.Entity;
 	import net.flashpunk.FP;

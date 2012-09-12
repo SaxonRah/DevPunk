@@ -1,9 +1,10 @@
-package demos {
+package demos.ogmolevel {
 	import net.flashpunk.Entity;
 	import net.flashpunk.FP;
 	import net.flashpunk.graphics.Image;
 	import net.flashpunk.utils.Input;
 	import net.flashpunk.utils.Key;
+	import demos.Assets;
 
 	public class Player extends Entity {
 		private const SPEED:int = 100;

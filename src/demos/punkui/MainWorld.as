@@ -1,9 +1,8 @@
-﻿package demos {
+﻿package demos.punkui {
 	
     import net.flashpunk.*;
     import punk.ui.*;
     import punk.ui.skins.*;
-	import demos.Assets;
 	import punk.transition.*;
 	import punk.transition.effects.*;
 	import flash.display.*;
@@ -12,6 +11,18 @@
 	import net.flashpunk.utils.*;
 	import punk.transition.*;
 	import punk.transition.effects.*;
+	
+	import demos.*;
+	import demos.Assets;
+	import demos.bloomnblur.*;
+	import demos.bloomnblur.bloom.*;
+	import demos.bloomnblur.blur.*;
+	import demos.gravityemit.*;
+	import demos.lighting.*;
+	import demos.ogmolevel.*;
+	import demos.platformer.*;
+	import demos.punkui.*;
+	import demos.tinting.*;
 
     public class MainWorld extends World {
 		

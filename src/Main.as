@@ -2,6 +2,7 @@
 	// Imports
 	import net.flashpunk.*;
 	import demos.*;
+	import demos.lighting.*;
 	
 	// Preloader
 	[Frame(factoryClass = "Preloader")]
@@ -27,7 +28,7 @@
 			 * TintWorld
 			 * LightGame
 			 */
-			FP.world = new Demo();
+			FP.world = new LightGame();
 			FP.console.enable();
             return;
         }

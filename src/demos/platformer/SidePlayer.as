@@ -1,4 +1,4 @@
-package demos {
+package demos.platformer {
 	import flash.display.BitmapData;
 	import flash.geom.Point;
 	import net.flashpunk.Entity;
@@ -7,12 +7,12 @@ package demos {
 	import net.flashpunk.utils.*;
 	import net.flashpunk.*;
 	import net.flashpunk.FP;
-
+	import demos.Assets;
+	
+	
 	public class SidePlayer extends Entity {
-		// gfx
-		[Embed(source = '../../assets/swordguy.png')]
-		private const SWORDGUY:Class;
-		public var sprSwordguy:Spritemap = new Spritemap(SWORDGUY, 48, 32);
+		
+		public var sprSwordguy:Spritemap = new Spritemap(Assets.SWORDGUY, 48, 32);
 
 		// const and vars
 		protected const SidePlayer_Speed:int = 175;

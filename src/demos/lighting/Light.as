@@ -1,4 +1,4 @@
-package demos
+package demos.lighting
 {
 	import flash.display.BitmapData;
 	import flash.geom.ColorTransform;
@@ -34,7 +34,7 @@ package demos
 		public function Light(_x:int, _y:int, _r:int, _c:uint = 0xFFFFFF, t_dynamicLight:Boolean=true) 
 		{
 			super(_x, _y);
-			
+			layer = 0;
 			range = _r;
 			color = _c;
 			dynamicLight = t_dynamicLight;

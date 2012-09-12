@@ -1,13 +1,24 @@
-﻿package demos {
+﻿package demos.tinting {
     import __AS3__.vec.*;
     import flash.display.*;
     import flash.geom.*;
     import net.flashpunk.*;
     import net.flashpunk.graphics.*;
     import net.flashpunk.utils.*;
-	import demos.Assets;
 	import punk.transition.*;
 	import punk.transition.effects.*;
+	
+	import demos.*;
+	import demos.Assets;
+	import demos.bloomnblur.*;
+	import demos.bloomnblur.bloom.*;
+	import demos.bloomnblur.blur.*;
+	import demos.gravityemit.*;
+	import demos.lighting.*;
+	import demos.ogmolevel.*;
+	import demos.platformer.*;
+	import demos.punkui.*;
+	import demos.tinting.*;
 
     public class TintWorld extends World {
         private var player:SidePlayer;
