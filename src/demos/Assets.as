@@ -1,4 +1,5 @@
 ﻿package demos {
+	import flash.display.BitmapData;
     import flash.geom.*;
     import net.flashpunk.graphics.*;
 	
@@ -20,7 +21,13 @@
 		public static const SPR_COIN:Class;
 		[Embed(source = "../../assets/player.png")]
 		public static const SPR_PLAYER:Class;
-
+		
+		// Lighting
+		[Embed(source = "../../assets/back.png")]
+		public static const GFX_LightLVL:Class;
+		[Embed(source = "../../assets/light.png")]
+		public static const GFX_Light:Class;
+		
         public function Assets() {
             return;
         }// end function

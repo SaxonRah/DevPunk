@@ -576,6 +576,10 @@
 		{
 			return R << 16 | G << 8 | B;
 		}
+		public static function getColorARGB(A:uint = 0, R:uint = 0, G:uint = 0, B:uint = 0):uint
+		{
+			return A << 24 | R << 16 | G << 8 | B;
+		}
 		
 		/**
 		 * Creates a color value with the chosen HSV values.

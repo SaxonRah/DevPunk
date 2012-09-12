@@ -17,12 +17,13 @@ package demos {
 		// const and vars
 		protected const SidePlayer_Speed:int = 175;
 		protected const SidePlayer_Jump:int = -300;
-		protected const SidePlayer_Gravity:int = 9;
-		protected const SidePlayer_AttackSize:uint = 100;
+		protected const SidePlayer_AttackSize:uint = 1;
+		protected var SidePlayer_Gravity:int = 9;
 		protected var SidePlayer_Attacking:Boolean = false;
 		protected var SidePlayer_Emit:Emitter;
 		protected var acceleration:Point;
 		protected var velocity:Point;
+		
 		
 		// Constructor
 		public function SidePlayer(x:Number, y:Number) {
@@ -70,6 +71,7 @@ package demos {
 			
 			if (Input.pressed(Key.Z)) {
 				attack();
+				
 			}
 			
 			if (input == 0) {
@@ -104,12 +106,10 @@ package demos {
 		protected function attack() : void {
 			if (SidePlayer_Attacking == false) {	
 				for (var loop:uint = 0; loop < SidePlayer_AttackSize; loop++ ) {
-					SidePlayer_Emit.emit("attack", x + width, y + height);
 					SidePlayer_Attacking = true;
-					FP.log("Attacking:" + loop);
+					FP.log("Attacking");
 				}
 			}
-
 		}
 	}
 }

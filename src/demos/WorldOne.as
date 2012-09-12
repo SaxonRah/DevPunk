@@ -92,21 +92,39 @@ package demos
 			}
 			else if(Input.released(Key.DIGIT_9))
 			{
-				Transition.to(WorldTwo, 
+				Transition.to(WorldOne, 
 					new FlipOut(), 
 					new FlipIn()
 				);
 			}
 			else if(Input.released(Key.DIGIT_0))
 			{
-				Transition.to(WorldOne, 
+				Transition.to(TintWorld, 
 					new RotoZoomOut(), 
 					new RotoZoomIn()
 				);
 			}
+			else if (Input.released(Key.Q)) 
+			{
+				Transition.to(LightGame, 
+					new PixelateOut(), 
+					new PixelateIn()
+				);
+			}
+			else if (Input.released(Key.W)) 
+			{
+				Transition.to(LightGame, 
+					new PixelateOut(), 
+					new PixelateIn()
+				);
+			}
 			
 			super.update();
-					
+			
+			if (Input.mousePressed) {
+				add(new GravityEmitter(Input.mouseX, Input.mouseY));
+			}
+			
 			FP.camera.x = _player.x - FP.halfWidth;
 			FP.camera.y = _player.y - FP.halfHeight;
 			FP.clampInRect(FP.camera, 0, 0, 1024 - FP.width, 512 - FP.height);	

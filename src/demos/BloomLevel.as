@@ -55,6 +55,11 @@ package demos
 			txt.graphic = _wrappedGraphic = new BloomWrapper(img);
 			txt.x = FP.width / 2 - img.width / 2;
 			txt.y = FP.height / 2 - img.height / 2;
+			
+			img.outlineStrength = 10;
+			img.outlineColor = 0x126576;
+			img.updateTextBuffer();
+			
 			_bloom.register(add(txt).graphic as BloomWrapper);
 		}
 		
@@ -120,20 +125,38 @@ package demos
 			}
 			else if(Input.released(Key.DIGIT_9))
 			{
-				Transition.to(WorldTwo, 
+				Transition.to(WorldOne, 
 					new FlipOut(), 
 					new FlipIn()
 				);
 			}
 			else if(Input.released(Key.DIGIT_0))
 			{
-				Transition.to(WorldOne, 
+				Transition.to(TintWorld, 
 					new RotoZoomOut(), 
 					new RotoZoomIn()
 				);
 			}
+			else if (Input.released(Key.Q)) 
+			{
+				Transition.to(LightGame, 
+					new PixelateOut(), 
+					new PixelateIn()
+				);
+			}
+			else if (Input.released(Key.W)) 
+			{
+				Transition.to(LightGame, 
+					new PixelateOut(), 
+					new PixelateIn()
+				);
+			}
 			
 			super.update();
+			
+			if (Input.mousePressed) {
+				add(new GravityEmitter(Input.mouseX, Input.mouseY));
+			}
 			
 			/* spawn new particles if enough time has passed */
 			if (_elapsed >= _timeToNextParticle)

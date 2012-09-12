@@ -13,7 +13,7 @@
 
         public function Main() {
             super(800, 600, 60, false);
-			
+			FP.screen.color = 0;
 			// Start on Any of the worlds 
 			/*
 			 * Demo 
@@ -24,10 +24,10 @@
 			 * BlurWorld
 			 * BloomNBlur
 			 * WorldOne
-			 * WorldTwo
+			 * TintWorld
+			 * LightGame
 			 */
-			FP.world = new WorldOne();
-				
+			FP.world = new Demo();
 			FP.console.enable();
             return;
         }
