@@ -1,15 +1,17 @@
 You can view the latest demo here [http://goo.gl/Ed1oe]
 
 Press a number key to change the worlds, when changing transitions will activate.
-	1*  | Demo       - PunkUI Demo
-	2*  | BlankWorld - BlankWorld Skin Changes dependant on Demo Skin selection box
-	3*  | MainWorld  - PunkUI Demo2 - Slightly Broken still mostly works
-	4*  | GameWorld  - arrowKeys - Collect Coins & WIN!		
-	5*  | BloomWorld - Bloom Demo
-	6*  | BlurWorld  - Blur Demo
-	7*  | BloomNBlur - Bloom N Blur Demo
-	8*  | WorldOne   - Transition Test WorldOne - arrowKeys, space, z - Move, Jump, Press Z
-	9*  | WorldTwo   - Transition Test WorldTwo - arrowKeys, space, z - Move, Jump, Press Z
+   1*  | Demo       - PunkUI Demo
+   2*  | BlankWorld - BlankWorld Skin Changes dependant on Demo Skin selection box
+   3*  | MainWorld  - PunkUI Demo2 - Slightly Broken still mostly works
+   4*  | GameWorld  - arrowKeys - Collect Coins & WIN!      
+   5*  | BloomWorld - Bloom Demo - Has Outlined Text
+   6*  | BlurWorld  - Blur Demo - Has Outlined Text
+   7*  | BloomNBlur - Bloom N Blur Demo - Has Outlined Text
+   8*  | WorldOne   - Transition Test WorldOne - arrowKeys, space, z - Move, Jump, Press Z
+   9*  | Tinting    - Tint Sprites - Click on the Slider Bar
+   Q*  | Lighting   - Reveal randomly generated terrain with lights
+   - Every World BUT Tinting has the ablity to click and emit particles from mouse click with gravity
 
 The goal of DevPunk is to use it as a prototyping tool to test new functionality for systems in other languages. 
 DevPunk Is an attempt to combine alot of the flashpunk/punkui/ogmo level code / 
