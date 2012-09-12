@@ -28,7 +28,9 @@ Zachary Lewis -[zacharylew.is]           Abel Toy      -[abel.toy@gmail.com],
 Chris Kelly   -[cjke.7777@gmail.com] 	 Richard Marks -[ccpsceo@gmail.com], 
 Alex Larioza  -[pixelsquidgames.net]     Noel Berry    -[thenberry@gmail.com],
 MaskedPixel   -[ikonone@gmail.com]       Reiss         -[http://goo.gl/wJT9X]
-Erifdex       -[twitter.com/Erifdex]
+Erifdex       -[twitter.com/Erifdex]     NotARaptor    -[http://goo.gl/5r0uP]
+Time          -[c.ullmann@hotmail.com]   
+
 
 Henrique Lazarini aka "Ails" [ails.deviantart.com] for RPG ICONS
 
