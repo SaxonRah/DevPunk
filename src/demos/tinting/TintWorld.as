@@ -46,9 +46,10 @@
             this.slider.addGraphic(this.sliderBar);
             this.sliderText = new Text("100", 0, -20);
             this.slider.addGraphic(this.sliderText);
-			sliderText.outlineStrength = 5;
-			sliderText.outlineColor = 0x0000000;
-			sliderText.updateTextBuffer();
+			this.sliderText.size = 15;
+			this.sliderText.outlineStrength = 5;
+			this.sliderText.outlineColor = 0x0000000;
+			this.sliderText.updateTextBuffer();
             add(this.slider);
             var _loc_2:* = [16777215, 8421504, 0, 16711680, 16776960, 65280, 65535, 255, 16711935];
             var _loc_3:* = [-2, -1, -0.5, 0.25, 0.5, 0.75, 1];
@@ -58,6 +59,7 @@
             _loc_8 = 0;
             while (_loc_8 < _loc_6) {
                 addGraphic(new Text(String(_loc_4 + (_loc_5 - _loc_4) * (_loc_8 / (_loc_6 - 1)))), 0, 0, 15 + 50 * _loc_8);
+
                 _loc_7 = 0;
 				
                 while (_loc_7 < _loc_2.length) {
@@ -80,91 +82,12 @@
             var _loc_3:* = null;
 			
 			// Check which Key has been pressed
-			if(Input.released(Key.DIGIT_1))
-			{
-				Transition.to(Demo, 
-					new StarIn({track:"player"}), 
-					new StarOut({track:"player"})
-				);			
+			if(Input.pressed(Key.X)) {
+				Assets.updateWorld(true);
+			} else if (Input.pressed(Key.Z)) {
+				Assets.updateWorld(false);
 			}
-			else if(Input.released(Key.DIGIT_2))
-			{
-				Transition.to(BlankWorld, 
-					new StarIn({color:0xFF06925f, duration:2}), 
-					new StarOut({color:0xFF06925f, duration:4})
-				);			
-			}
-			else if(Input.released(Key.DIGIT_3))
-			{
-				Transition.to(MainWorld, 
-					new CircleIn({track:"player"}), 
-					new CircleOut({track:"player"})
-				);			
-			}
-			else if(Input.released(Key.DIGIT_4))
-			{
-				Transition.to(GameWorld, 
-					new CircleIn({duration:1, color:0x99993333}), 
-					new CircleOut({duration:0.5})
-				);							
-			}
-			else if(Input.released(Key.DIGIT_5))
-			{				
-				Transition.to(BloomLevel, 
-					new FadeIn({duration:4}), 
-					new FadeOut({duration:6, color:0xFF334455})
-				);			
-			}
-			else if(Input.released(Key.DIGIT_6))
-			{
-				Transition.to(BlurLevel, 
-					new StripeFadeOut(), 
-					new StripeFadeIn()
-				);
-			}
-			else if(Input.released(Key.DIGIT_7))
-			{
-				Transition.to(BloomNBlur, 
-					new BlurOut(), 
-					new BlurIn(), 
-					{onOutComplete:onBlurOutComplete, onInComplete:onBlurInComplete}
-				);
-			}			
-			else if(Input.released(Key.DIGIT_8))
-			{
-				Transition.to(WorldOne, 
-					new PixelateOut(), 
-					new PixelateIn()
-				);
-			}
-			else if(Input.released(Key.DIGIT_9))
-			{
-				Transition.to(WorldOne, 
-					new FlipOut(), 
-					new FlipIn()
-				);
-			}
-			else if(Input.released(Key.DIGIT_0))
-			{
-				Transition.to(TintWorld, 
-					new RotoZoomOut(), 
-					new RotoZoomIn()
-				);
-			}
-			else if (Input.released(Key.Q)) 
-			{
-				Transition.to(LightGame, 
-					new PixelateOut(), 
-					new PixelateIn()
-				);
-			}
-			else if (Input.released(Key.W)) 
-			{
-				Transition.to(LightGame, 
-					new PixelateOut(), 
-					new PixelateIn()
-				);
-			}
+			
 			 //super.update();
 			
             if (Input.mouseDown) {

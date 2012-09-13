@@ -1,7 +1,23 @@
 ﻿package demos {
+	
 	import flash.display.BitmapData;
     import flash.geom.*;
-    import net.flashpunk.graphics.*;
+	import net.flashpunk.FP;
+	import net.flashpunk.graphics.*;
+	import punk.transition.*;
+	import punk.transition.effects.*;
+
+	import demos.*;
+	import demos.Assets;
+	import demos.bloomnblur.*;
+	import demos.bloomnblur.bloom.*;
+	import demos.bloomnblur.blur.*;
+	import demos.gravityemit.*;
+	import demos.lighting.*;
+	import demos.ogmolevel.*;
+	import demos.platformer.*;
+	import demos.punkui.*;
+	import demos.tinting.*;
 	
     public class Assets extends Object {
 		
@@ -37,9 +53,72 @@
 		[Embed(source = '../../assets/swordguy.png')]
 		public static const SWORDGUY:Class;
 		
-        public function Assets() {
-            return;
-        }// end function
-
-    }
+		// Global Level Switching
+		public static var worldNumber:int = 0;
+		public static const numberOfWorlds:int = 9;
+		
+		public static function updateWorld(_increment:Boolean = true) : void {
+			if(_increment) {
+				if(worldNumber < numberOfWorlds) worldNumber++;
+			}
+			else {
+			if(worldNumber > 0) worldNumber--;
+			}
+		
+			//Transition code here for next/previous world.
+			//Example, a switch.
+			switch(worldNumber) {
+				
+			case 0:
+					FP.world = new LightGame();
+				break;
+			case 1:
+					Transition.to(GameWorld,
+					new CircleIn({duration:1, color:0x99993333}),
+					new CircleOut({duration:1, color:0x99993333}));
+				break;
+			case 2:
+					Transition.to(BloomLevel,
+					new FadeIn({duration:4}),
+					new FadeOut({duration:6, color:0xFF334455}));
+				break;
+			case 3:
+					Transition.to(BlurLevel,
+					new StripeFadeOut(),
+					new StripeFadeIn());
+					
+				break;
+			case 4:
+					Transition.to(BloomNBlur,
+					new BlurOut(),
+					new BlurIn());
+				break;
+			case 5:
+					Transition.to(WorldOne,
+					new StarIn({track:"player"}), 
+					new StarOut({track:"player"}));	
+				break;
+			case 6:
+					Transition.to(Demo,
+					new StarIn({color:0xFF06925f, duration:2}),
+					new StarOut({color:0xFF06925f, duration:4}));	
+				break;
+			case 7:
+					Transition.to(BlankWorld,
+					new StripeFadeOut(),
+					new StripeFadeIn());
+				break;
+			case 8:
+					Transition.to(MainWorld,
+					new CircleIn(),
+					new CircleOut());
+				break;
+			case 9:
+					Transition.to(TintWorld,
+					new RotoZoomOut(),
+					new RotoZoomIn());
+				break;
+			}
+		}
+	}
 }
