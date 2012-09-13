@@ -1,6 +1,6 @@
 You can view the latest demo here [http://goo.gl/Ed1oe]
 
-Press a number key to change the worlds, when changing transitions will activate.
+Press Z/X to transition through the worlds.
    1*  | PunkUI Demo 
    2*  | BlankPunkUI - BlankWorld Skin Changes dependant on Demo Skin selection box
    3*  | MainWorld  - PunkUI Demo2 - Slightly Broken still mostly works
@@ -8,7 +8,7 @@ Press a number key to change the worlds, when changing transitions will activate
    5*  | Bloom Demo - Has Outlined Text - enter toggles text bloom
    6*  | Blur Demo - Has Outlined Text
    7*  | Bloom N Blur Demo - Has Outlined Text - enter toggles text bloom
-   8*  | Transition - arrowKeys, space, z - Move, Jump, Press Z
+   8*  | Transition - arrowKeys, space, - Move, Jump,
    9*  | Tinting - Tint Sprites - Click on the Slider Bar
    Q*  | Lighting - click to reveal randomly generated blocks - Space changes color intensity
    - Every World BUT Tinting has the ablity to click and emit particles from mouse click with gravity
