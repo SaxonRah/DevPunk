@@ -29,7 +29,7 @@ Chris Kelly   -[cjke.7777@gmail.com] 	 Richard Marks -[ccpsceo@gmail.com],
 Alex Larioza  -[pixelsquidgames.net]     Noel Berry    -[thenberry@gmail.com],
 MaskedPixel   -[ikonone@gmail.com]       Reiss         -[http://goo.gl/wJT9X]
 Erifdex       -[twitter.com/Erifdex]     NotARaptor    -[http://goo.gl/5r0uP]
-Time          -[c.ullmann@hotmail.com]   
+Time          -[c.ullmann@hotmail.com]   Deamon        -[http://goo.gl/vRxe8]
 
 
 Henrique Lazarini aka "Ails" [ails.deviantart.com] for RPG ICONS
