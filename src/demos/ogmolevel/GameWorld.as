@@ -17,6 +17,7 @@ package demos.ogmolevel {
 	import demos.gravityemit.*;
 	import demos.lighting.*;
 	import demos.ogmolevel.*;
+	import demos.ogmolevel.Level;
 	import demos.platformer.*;
 	import demos.punkui.*;
 	import demos.tinting.*;
