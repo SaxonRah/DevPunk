@@ -10,7 +10,7 @@ Press Z/X to transition through the worlds.
    7*  | Bloom N Blur Demo - Has Outlined Text - enter toggles text bloom
    8*  | Transition - arrowKeys, space, - Move, Jump,
    9*  | Tinting - Tint Sprites - Click on the Slider Bar
-   Q*  | Lighting - click to reveal randomly generated blocks - Space changes color intensity
+   10*  | Lighting - click to reveal randomly generated blocks - Space changes color intensity
    - Every World BUT Tinting has the ablity to click and emit particles from mouse click with gravity
 
 The goal of DevPunk is to use it as a prototyping tool to test new functionality for systems in other languages. 
