@@ -40,7 +40,7 @@
     <option linkReport="" />
     <option loadExterns="" />
     <option staticLinkRSL="True" />
-    <option additional="-debug=false" />
+    <option additional="" />
     <option compilerConstants="" />
     <option minorVersion="" />
   </build>
@@ -83,7 +83,7 @@
   <!-- Other project options -->
   <options>
     <option showHiddenPaths="False" />
-    <option testMovie="ExternalPlayer" />
+    <option testMovie="Unknown" />
   </options>
   <!-- Plugin storage -->
   <storage />
