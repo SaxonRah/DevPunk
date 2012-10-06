@@ -68,10 +68,11 @@ package demos.bloomnblur.bloom {
 			txt.graphic = _wrappedGraphic = new BloomWrapper(img);
 			txt.x = FP.width / 2 - img.width / 2;
 			txt.y = FP.height / 2 - img.height / 2;
-			
 			img.outlineStrength = 7;
 			img.outlineColor = 0x126576;
 			img.updateTextBuffer();
+			
+			txt.layer = 1;
 			
 			_bloom.register(add(txt).graphic as BloomWrapper);
 		}

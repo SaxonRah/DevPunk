@@ -54,7 +54,7 @@ package demos.bloomnblur.blur
 		{
 			
 			//set the blur to be under the particles, and add it to the world
-			_blur.layer = 1;
+			_blur.layer = -2;
 			add(_blur);
 			
 			//create an initial particle
@@ -70,6 +70,9 @@ package demos.bloomnblur.blur
 			img.outlineStrength = 7;
 			img.outlineColor = 0xFF34B3;
 			img.updateTextBuffer();
+			
+			txt.layer = 1;
+			
 			add(txt);
 		}
 		

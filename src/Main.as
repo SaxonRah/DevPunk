@@ -15,19 +15,6 @@
         public function Main() {
             super(800, 600, 60, false);
 			FP.screen.color = 0;
-			// Start on Any of the worlds 
-			/*
-			 * Demo 
-			 * BlankWorld
-			 * MainWorld
-			 * GameWorld
-			 * BloomWorld
-			 * BlurWorld
-			 * BloomNBlur
-			 * WorldOne
-			 * TintWorld
-			 * LightGame
-			 */
 			FP.world = new LightGame();
 			FP.console.enable();
             return;

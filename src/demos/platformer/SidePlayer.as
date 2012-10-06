@@ -69,7 +69,7 @@ package demos.platformer {
 				jump();
 			}
 			
-			if (Input.pressed(Key.Z)) {
+			if (Input.pressed(Key.C)) {
 				attack();
 				
 			}

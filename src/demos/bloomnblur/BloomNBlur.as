@@ -59,11 +59,11 @@ package demos.bloomnblur {
 			
 			//set the layer and color of the bloom, and add it to the world
 			_bloom.layer = -1;
-			_bloom.color = 0xafffff;
+			_bloom.color = 0xFFFFFFF;
 			add(_bloom);
 			
 			//set the layer of the blur and add it to the world
-			_blur.layer = 1;
+			_blur.layer = -2;
 			add(_blur);
 			
 			//create, add, and register an initial particle
@@ -78,10 +78,11 @@ package demos.bloomnblur {
 			txt.graphic = _wrappedGraphic = new BloomWrapper(img);
 			txt.x = FP.width / 2 - img.width / 2;
 			txt.y = FP.height / 2 - img.height / 2;
-			
 			img.outlineStrength = 7;
 			img.outlineColor = 0x126534;
 			img.updateTextBuffer();
+			
+			txt.layer = 1;
 			
 			_bloom.register(add(txt).graphic as BloomWrapper);
 		}
