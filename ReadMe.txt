@@ -8,7 +8,7 @@ Press Z/X to transition through the worlds.
    5*  | Bloom Demo - Has Outlined Text - enter toggles text bloom
    6*  | Blur Demo - Has Outlined Text
    7*  | Bloom N Blur Demo - Has Outlined Text - enter toggles text bloom
-   8*  | Transition - arrowKeys, space, - Move, Jump,
+   8*  | Transition - arrowKeys, space, - Move, Jump,  C will say attacking in the console
    9*  | Tinting - Tint Sprites - Click on the Slider Bar
    10*  | Lighting - click to reveal randomly generated blocks - Space changes color intensity
    - Every World BUT Tinting has the ablity to click and emit particles from mouse click with gravity
