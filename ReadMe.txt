@@ -1,4 +1,4 @@
-You can view the latest demo here [http://goo.gl/Ed1oe]
+You can view the latest demo here [http://goo.gl/b918B]
 
 Press Z/X to transition through the worlds.
    1*  | PunkUI Demo 
