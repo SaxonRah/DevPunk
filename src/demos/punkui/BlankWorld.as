@@ -27,7 +27,7 @@ package demos.punkui
 
         public function BlankWorld()
         {
-			FP.log("Blank World Started");
+			FP.log("Blank UI World Started");
             var blankworld:* = new PunkWindow(160, 120, 200, 200, "PunkUI");
             add(blankworld);
             return;

@@ -31,7 +31,7 @@ package demos.platformer
 		
 		public function WorldOne() 
 		{
-			FP.log("World One Started");
+			FP.log("SideWorld Started");
 			
 			var img:Image = new Image(Assets.GFX_MAP);
 			img.scale = 2;

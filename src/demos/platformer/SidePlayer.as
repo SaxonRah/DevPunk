@@ -8,6 +8,7 @@ package demos.platformer {
 	import net.flashpunk.*;
 	import net.flashpunk.FP;
 	import demos.Assets;
+	import demos.gravityemit.GravityEmitter;
 	
 	
 	public class SidePlayer extends Entity {
@@ -107,6 +108,7 @@ package demos.platformer {
 			if (SidePlayer_Attacking == false) {	
 				for (var loop:uint = 0; loop < SidePlayer_AttackSize; loop++ ) {
 					SidePlayer_Attacking = true;
+					FP.world.add(new GravityEmitter(x, y));
 					FP.log("Attacking");
 				}
 			}

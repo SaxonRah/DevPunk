@@ -2,26 +2,24 @@
 	// Imports
 	import net.flashpunk.*;
 	import demos.*;
+	import demos.ogmolevel.GameWorld;
 	import demos.lighting.*;
+	import splash.Splash;
 	
 	// Preloader
 	[Frame(factoryClass = "Preloader")]
 	[SWF(width = "800", height = "600")]
 
-	// Main Engine Window 
-		//----> GameWorld
+	//----> s.start(new AnyDemoWorldNameHere);
     public class Main extends Engine {
-
+		
         public function Main() {
             super(800, 600, 60, false);
-			FP.screen.color = 0;
-			FP.world = new LightGame();
 			FP.console.enable();
-            return;
-        }
-
-        override public function init() : void {
-            return;
-        }
+			var s:Splash = new Splash();
+			FP.world.add(s);
+			FP.log("Started Logo");
+			s.start(new LightGame);
+		}
     }
 }

@@ -42,6 +42,7 @@ package demos.lighting
 		private var col2:uint;
 		
 		public function LightGame() {
+			FP.log("LightGame Started");
 			super();
 			
 		}

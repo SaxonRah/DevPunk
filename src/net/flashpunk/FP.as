@@ -1,5 +1,8 @@
 ﻿package net.flashpunk 
 {
+	import flash.system.System;
+	import flash.net.LocalConnection;
+	
 	import flash.display.BitmapData;
 	import flash.display.Sprite;
 	import flash.display.Stage;
@@ -15,12 +18,23 @@
 	import net.flashpunk.debug.Console;
 	import net.flashpunk.tweens.misc.Alarm;
 	import net.flashpunk.tweens.misc.MultiVarTween;
-
+	
 	/**
 	 * Static catch-all class used to access global properties and functions.
 	 */
 	public class FP 
 	{
+		/**
+		 * devPunk - Hack to collect memory - accepted parameters 0.25 & 0.75
+		 */
+		public static function gcHack(imm:Number):void {
+			System.pauseForGCIfCollectionImminent(imm);
+			try {
+				new LocalConnection().connect('foo');
+				new LocalConnection().connect('foo');
+			} catch (e:*) { }
+		}
+		
 		/**
 		 * The FlashPunk major version.
 		 */

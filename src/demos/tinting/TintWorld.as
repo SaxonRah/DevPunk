@@ -27,9 +27,11 @@
         private var sliderWidth:Number = 50;
         private var sliderHeight:Number = 400;
         private var sliderText:Text;
+		private var sideText:Text;
         private var blendMode:Number = 1;
 
         public function TintWorld() {
+			FP.log("TintWorld Started");
             var _loc_7:* = 0;
             var _loc_8:* = 0;
             var _loc_1:* = new BitmapData(FP.width, FP.height, false, 0);
@@ -58,10 +60,9 @@
             var _loc_6:* = 13;
             _loc_8 = 0;
             while (_loc_8 < _loc_6) {
-                addGraphic(new Text(String(_loc_4 + (_loc_5 - _loc_4) * (_loc_8 / (_loc_6 - 1)))), 0, 0, 15 + 50 * _loc_8);
-
+                addGraphic(this.sideText = new Text(String(_loc_4 + (_loc_5 - _loc_4) * (_loc_8 / (_loc_6 - 1)))), 0, 0, 15 + 50 * _loc_8);
+				sideText.size = 15;
                 _loc_7 = 0;
-				
                 while (_loc_7 < _loc_2.length) {
                     this.player = new SidePlayer(60 + 60 * _loc_7, 5 + 50 * _loc_8);
                     this.player.sprSwordguy.tintMode = this.blendMode;

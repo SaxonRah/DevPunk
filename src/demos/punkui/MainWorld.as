@@ -36,7 +36,7 @@
 		private var _numberX:* = 0;
 		
         public function MainWorld() {
-			FP.log("Main World Started");
+			FP.log("PunkUI World 2 Started");
             PunkUI.skin = new Elite();
 			
             var _loc_1:* = [];

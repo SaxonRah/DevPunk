@@ -26,7 +26,7 @@ package demos.ogmolevel {
 		public var txtA:*= new PunkTextArea("Coins Collected : " + Coin.getGameCoin(), 400, 400, 175, 50);
 		
 		public function GameWorld() {
-			FP.log("Game World Started");
+			FP.log("OgmoWorld Started");
 			Coin.setGameCoin();
 		}
 		

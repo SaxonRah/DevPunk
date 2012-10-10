@@ -59,14 +59,12 @@
 		public static var worldNumber:int = 0;
 		public static const numberOfWorlds:int = 9;
 		
-		public static function gcHack(imm:Number):void {
-			System.pauseForGCIfCollectionImminent(imm);
-			FP.log("Flushing the GC");
+		// devPunk - Hack to collect memory
+		public static function gcHackLog(imm:Number):void {
 			try {
-				new LocalConnection().connect('foo');
-				new LocalConnection().connect('foo');
+				FP.gcHack(imm)
 			} catch (e:*) { }
-			FP.log("End Flushing");
+			FP.log("End gcHack");
 		}
 		
 		public static function updateWorld(_increment:Boolean = true) : void {
@@ -80,70 +78,61 @@
 			//Transition code here for next/previous world.
 			//Example, a switch.
 			switch(worldNumber) {
-				
 			case 0:
 					FP.world = new LightGame();
 				break;
 			case 1:
-					gcHack(0.25);
+					gcHackLog(0.25);
 					Transition.to(GameWorld,
 					new CircleIn({duration:1, color:0x99993333}),
 					new CircleOut({duration:1, color:0x99993333}));
 				break;
 			case 2:
-					gcHack(0.25);
-					
+					gcHackLog(0.25);
 					Transition.to(BloomLevel,
 					new FadeIn({duration:4}),
 					new FadeOut({duration:6, color:0xFF334455}));
 				break;
 			case 3:
 					
-					gcHack(0.25);
-					
+					gcHackLog(0.25);
 					Transition.to(BlurLevel,
 					new StripeFadeOut(),
 					new StripeFadeIn());
 					
 				break;
 			case 4:
-					gcHack(0.25);
-					
+					gcHackLog(0.25);
 					Transition.to(BloomNBlur,
 					new BlurOut(),
 					new BlurIn());
 				break;
 			case 5:
-					gcHack(0.25);
-					
+					gcHackLog(0.25);
 					Transition.to(WorldOne,
 					new StarIn({track:"player"}), 
 					new StarOut({track:"player"}));	
 				break;
 			case 6:
-					gcHack(0.25);
-					
+					gcHackLog(0.25);
 					Transition.to(Demo,
 					new StarIn({color:0xFF06925f, duration:2}),
 					new StarOut({color:0xFF06925f, duration:4}));	
 				break;
 			case 7:
-					gcHack(0.25);
-					
+					gcHackLog(0.25);
 					Transition.to(BlankWorld,
 					new StripeFadeOut(),
 					new StripeFadeIn());
 				break;
 			case 8:
-					gcHack(0.25);
-					
+					gcHackLog(0.25);
 					Transition.to(MainWorld,
 					new CircleIn(),
 					new CircleOut());
 				break;
 			case 9:
-					gcHack(0.25);
-					
+					gcHackLog(0.25);
 					Transition.to(TintWorld,
 					new RotoZoomOut(),
 					new RotoZoomIn());

@@ -39,7 +39,7 @@ package demos.punkui {
 		public var button:PunkButton;
 		
 		public function Demo() {
-			FP.log("Demo World Started");
+			FP.log("PunkUI World 1 Started");
 		}
 
 		override public function begin() : void {
