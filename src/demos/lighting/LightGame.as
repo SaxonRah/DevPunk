@@ -41,6 +41,7 @@ package demos.lighting {
 		private var colLerpR:Number = 0.025;
 		private var col1:uint;
 		private var col2:uint;
+		private const blocksTotal:int = 42;
 		
 		public function LightGame() {
 			FP.log("LightGame Started");
@@ -115,8 +116,8 @@ package demos.lighting {
 		}
 
 		private function createLevel():void {
-			// Create Level of Boxes
-			for (var i:int = 0; i < 20; i++) {
+			// Create Level of blocks
+			for (var i:int = 0; i < blocksTotal; i++) {
 				var mult:int = 150 / Lighting.grid;
 				Lighting.blocks.fillRect(new Rectangle(Math.random() * Lighting.blocks.width, Math.random() * Lighting.blocks.height, Math.ceil(Math.random() * mult), Math.ceil(Math.random() * mult)), 0xFFFFFFFF);
 			}
