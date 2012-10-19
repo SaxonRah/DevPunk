@@ -1,5 +1,4 @@
-package demos.lighting
-{
+package demos.lighting {
 	import flash.geom.Rectangle;
 	import flash.geom.Point;
 	import net.flashpunk.graphics.Backdrop;
@@ -13,13 +12,15 @@ package demos.lighting
 	import punk.transition.*;
 	import punk.transition.effects.*;
 	
+	import punk.light.Light;
+	import punk.light.Lighting;
+	
 	import demos.*;
 	import demos.Assets;
 	import demos.bloomnblur.*;
 	import demos.bloomnblur.bloom.*;
 	import demos.bloomnblur.blur.*;
 	import demos.gravityemit.*;
-	import demos.lighting.*;
 	import demos.ogmolevel.*;
 	import demos.platformer.*;
 	import demos.punkui.*;
@@ -44,25 +45,22 @@ package demos.lighting
 		public function LightGame() {
 			FP.log("LightGame Started");
 			super();
-			
 		}
 		
-		override public function begin() : void {
-			
-			
+		override public function begin():void {
 			createLevel();
 			addGraphic(new Backdrop(img));
 			add(lights);
 			super.begin();
 			Lighting.updateStaticLights();
 		}
-		override public function update() : void
-		{
+		
+		override public function update():void {
 			
 			var heldLights:int = 1;
 			
 			// Check which Key has been pressed
-			if(Input.pressed(Key.X)) {
+			if (Input.pressed(Key.X)) {
 				Assets.updateWorld(true);
 			} else if (Input.pressed(Key.Z)) {
 				Assets.updateWorld(false);
@@ -77,20 +75,19 @@ package demos.lighting
 				colLerp = 0;
 				colLerpR = Math.abs(colLerpR);
 				t.push(new Light(Input.mouseX, Input.mouseY, (Math.random() * 10 + 10) * 15 / Lighting.grid, col1));
-				add(t[t.length-1]);
+				add(t[t.length - 1]);
 			}
 			for (var i:int = 0; i < Math.min(t.length, heldLights); i++) {
-				if (t.length-i >= 0 && t[t.length-1-i]) {
+				if (t.length - i >= 0 && t[t.length - 1 - i]) {
 					var radius:int = 150;
-					t[t.length-1-i].x = Input.mouseX + radius * Math.cos(2 * Math.PI * i / Math.min(t.length, heldLights));
+					t[t.length - 1 - i].x = Input.mouseX + radius * Math.cos(2 * Math.PI * i / Math.min(t.length, heldLights));
 					t[t.length - 1 - i].y = Input.mouseY + radius * Math.sin(2 * Math.PI * i / Math.min(t.length, heldLights));
 					if (t.length == 1 || heldLights == 1) {
-						t[t.length-1].x = Input.mouseX;
+						t[t.length - 1].x = Input.mouseX;
 						t[t.length - 1].y = Input.mouseY;
 						if (Input.check(Key.SPACE)) {
 							colLerp += colLerpR;
-							if (colLerp >= 1)
-							{
+							if (colLerp >= 1) {
 								colLerpR = -colLerpR;
 								colLerp = 1;
 							}
@@ -112,33 +109,24 @@ package demos.lighting
 			}
 		}
 		
-		override public function render() : void {
+		override public function render():void {
 			super.render();
 			createLightBox();
 		}
-		
-		private function onBlurOutComplete() : void {
-			trace("Blur Out done!");
-		}		
-		
-		private function onBlurInComplete() : void {
-			trace("Blur In done!");
-		}
-		
-		private function createLevel() : void {
+
+		private function createLevel():void {
 			// Create Level of Boxes
 			for (var i:int = 0; i < 20; i++) {
 				var mult:int = 150 / Lighting.grid;
-				Lighting.blockLights.fillRect(new Rectangle(Math.random() * Lighting.blockLights.width, Math.random() * Lighting.blockLights.height, 
-					Math.ceil(Math.random() * mult), Math.ceil(Math.random() * mult)), 0xFFFFFFFF);
+				Lighting.blocks.fillRect(new Rectangle(Math.random() * Lighting.blocks.width, Math.random() * Lighting.blocks.height, Math.ceil(Math.random() * mult), Math.ceil(Math.random() * mult)), 0xFFFFFFFF);
 			}
 		}
 		
-		private function createLightBox() : void {
+		private function createLightBox():void {
 			var e:Entity;
 			var v:Vector.<Entity> = new Vector.<Entity>();
 			getClass(Light, v);
-			for each(e in v) {
+			for each (e in v) {
 				Draw.rect(e.x, e.y, Lighting.grid, Lighting.grid, (e as Light).color);
 			}
 		}
