@@ -1,5 +1,8 @@
 ﻿package net.flashpunk
 {
+	import flash.events.Event;
+	import flash.events.EventDispatcher;
+	import flash.events.IEventDispatcher;
 	import flash.geom.Point;
 	import flash.utils.Dictionary;
 
@@ -7,8 +10,76 @@
 	 * Updated by Engine, main game container that holds all currently active Entities.
 	 * Useful for organization, eg. "Menu", "Level1", etc.
 	 */
-	public class World extends Tweener
+	public class World extends Tweener implements IEventDispatcher
 	{
+		private var _dispatcher:IEventDispatcher;
+		private function get dispatcher():IEventDispatcher
+		{
+			if (_dispatcher == null)
+			{
+				_dispatcher = new EventDispatcher(this);
+			}
+			return _dispatcher;
+		}
+		
+		/**
+		 * Registers an event listener object with an EventDispatcher object so that the listener receives notification of an event.
+		 * @param	type
+		 * @param	listener
+		 * @param	useCapture
+		 * @param	priority
+		 * @param	useWeakReference
+		 */
+		public function addEventListener(type:String, listener:Function, useCapture:Boolean = false, priority:int = 0, useWeakReference:Boolean = false):void
+		{
+			this.dispatcher.addEventListener(type, listener, useCapture, priority, useWeakReference);
+		}
+		
+		/**
+		 * Dispatches an event into the event flow.
+		 * @param	event
+		 * @return
+		 */
+		public function dispatchEvent(event:Event):Boolean
+		{
+			return this.dispatcher.dispatchEvent(event);
+		}
+		
+		/**
+		 * Checks whether the EventDispatcher object has any listeners registered for a specific type of event.
+		 * @param	type
+		 * @return
+		 */
+		public function hasEventListener(type:String):Boolean
+		{
+			if (this._dispatcher == null)
+			{
+				return false;
+			}
+			return this.dispatcher.hasEventListener(type);
+		}
+		
+		/**
+		 * Removes a listener from the EventDispatcher object.
+		 * @param	type
+		 * @param	listener
+		 * @param	useCapture
+		 */
+		public function removeEventListener(type:String, listener:Function, useCapture:Boolean = false):void
+		{
+			this.dispatcher.removeEventListener(type, listener, useCapture);
+		}
+		
+		/**
+		 * Checks whether an event listener is registered with this EventDispatcher object or any of its ancestors for the specified event type.
+		 * @param	type
+		 * @return
+		 */
+		public function willTrigger(type:String):Boolean
+		{
+			return this.dispatcher.willTrigger(type);
+		}
+		
 		/**
 		 * If the render() loop is performed.
 		 */
@@ -392,6 +463,30 @@
 			return null;
 		}
 
+		/**
+		 * Returns the first Entity that collides with the rectangular area of the specified type(s).
+		 * @param	types		An array of types to check for
+		 * @param	rX			X position of the rectangle.
+		 * @param	rY			Y position of the rectangle.
+		 * @param	rWidth		Width of the rectangle.
+		 * @param	rHeight		Height of the rectangle.
+		 * @return	The first Entity to collide, or null if none collide.
+		 */
+		public function collideRectTypes(types:Array, rX:Number, rY:Number, rWidth:Number, rHeight:Number):Entity
+		{
+			for each (var type:String in types)
+			{
+				var e:Entity = _typeFirst[type];
+				while (e)
+				{
+					if (e.collideRect(e.x, e.y, rX, rY, rWidth, rHeight)) return e;
+					e = e._typeNext;
+				}
+			}
+			
+			return null;
+		}
+		
 		/**
 		 * Returns the first Entity found that collides with the position.
 		 * @param	type		The Entity type to check for.
@@ -992,31 +1087,6 @@
 				_layerSort = false;
 			}
 		}
-		
-		/**
- * Returns the Entity at front which collides with the point.
- * @param   x       X position
- * @param   y       Y position
- * @return The Entity at front which collides with the point, or null if not found.
- */
-public function frontCollidePoint(x:Number, y:Number):Entity
-{
-    var e:Entity,
-    i:int = 0,
-    l:int = _layerList.length;
-    do
-    {
-        e = _renderFirst[_layerList[i]];
-        while (e)
-        {
-            if(e.collidePoint(e.x, e.y, x, y)) return e;
-            e = e._renderNext
-        }
-        if(i > l) break;
-    }
-    while(++i);
-        return null;
-}
 		
 		/** @private Adds Entity to the update list. */
 		private function addUpdate(e:Entity):void

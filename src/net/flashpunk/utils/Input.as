@@ -48,6 +48,46 @@
 		public static var mouseReleased:Boolean = false;
 		
 		/**
+		 * If the right mouse button is down.
+		 */
+		public static var mouseDownRight:Boolean = false;
+		
+		/**
+		 * If the middle mouse button is up.
+		 */
+		public static var mouseUpRight:Boolean = true;
+		
+		/**
+		 * If the right mouse button was pressed this frame.
+		 */
+		public static var mousePressedRight:Boolean = false;
+		
+		/**
+		 * If the right mouse button was released this frame.
+		 */
+		public static var mouseReleasedRight:Boolean = false;
+		
+		/**
+		 * If the middle mouse button is down.
+		 */
+		public static var mouseDownMiddle:Boolean = false;
+		
+		/**
+		 * If the middle mouse button is up.
+		 */
+		public static var mouseUpMiddle:Boolean = true;
+		
+		/**
+		 * If the middle mouse button was pressed this frame.
+		 */
+		public static var mousePressedMiddle:Boolean = false;
+		
+		/**
+		 * If the middle mouse button was released this frame.
+		 */
+		public static var mouseReleasedMiddle:Boolean = false;
+		
+		/**
 		 * If the mouse wheel was moved this frame.
 		 */
 		public static var mouseWheel:Boolean = false; 
@@ -196,6 +236,10 @@
 				FP.stage.addEventListener(MouseEvent.MOUSE_UP, onMouseUp);
 				FP.stage.addEventListener(MouseEvent.MOUSE_WHEEL, onMouseWheel);
 				FP.stage.addEventListener(MouseEvent.MOUSE_MOVE, onMouseMove);
+				FP.stage.addEventListener(MouseEvent.MIDDLE_MOUSE_DOWN, onMiddleMouseDown);
+				FP.stage.addEventListener(MouseEvent.MIDDLE_MOUSE_UP, onMiddleMouseUp);
+				FP.stage.addEventListener(MouseEvent.RIGHT_MOUSE_DOWN, onRightMouseDown);
+				FP.stage.addEventListener(MouseEvent.RIGHT_MOUSE_UP, onRightMouseUp);
 				_enabled = true;
 			}
 		}
@@ -209,6 +253,12 @@
 			_releaseNum = 0;
 			if (mousePressed) mousePressed = false;
 			if (mouseReleased) mouseReleased = false;
+			
+			if (mousePressedMiddle) mousePressedMiddle = false;
+			if (mouseReleasedMiddle) mouseReleasedMiddle = false;
+			
+			if (mousePressedRight) mousePressedRight = false;
+			if (mouseReleasedRight) mouseReleasedRight = false;
 			
 			if (mouseCursor) {
 				if (mouseCursor == "hide") {
@@ -292,6 +342,44 @@
 			mouseDown = false;
 			mouseUp = true;
 			mouseReleased = true;
+		}
+		
+		/** @private Event handler for middle mouse press. */
+		private static function onMiddleMouseDown(e:MouseEvent):void
+		{
+			if (!mouseDownMiddle)
+			{
+				mouseDownMiddle = true;
+				mouseUpMiddle = false;
+				mousePressedMiddle = true;
+			}
+		}
+		
+		/** @private Event handler for middle mouse release. */
+		private static function onMiddleMouseUp(e:MouseEvent):void
+		{
+			mouseDownMiddle = false;
+			mouseUpMiddle = true;
+			mouseReleasedMiddle = true;
+		}
+		
+		/** @private Event handler for right mouse press. */
+		private static function onRightMouseDown(e:MouseEvent):void
+		{
+			if (!mouseDownRight)
+			{
+				mouseDownRight = true;
+				mouseUpRight = false;
+				mousePressedRight = true;
+			}
+		}
+		
+		/** @private Event handler for middle mouse release. */
+		private static function onRightMouseUp(e:MouseEvent):void
+		{
+			mouseDownRight = false;
+			mouseUpRight = true;
+			mouseReleasedRight = true;
 		}
 		
 		/** @private Event handler for mouse wheel events */
