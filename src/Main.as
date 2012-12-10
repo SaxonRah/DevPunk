@@ -1,8 +1,6 @@
 ﻿package {
 	// Imports
 	import net.flashpunk.*;
-	import demos.*;
-	import demos.ogmolevel.GameWorld;
 	import demos.lighting.*;
 	import splash.Splash;
 	

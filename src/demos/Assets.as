@@ -20,6 +20,7 @@
 	import demos.platformer.*;
 	import demos.punkui.*;
 	import demos.tinting.*;
+	import demos.tilelighting.LightWorld;
 	
     public class Assets extends Object {
 		
@@ -48,6 +49,11 @@
 		[Embed(source = "../../assets/light.png")]
 		public static const GFX_Light:Class;
 		
+		//tile Lighting
+		[Embed(source = "../../assets/lighting.png")]
+		public static const SPR_LIGHTING:Class;
+		[Embed(source = "../../assets/bg.png")]
+		public static const SPR_BG:Class;
 		
 		// Platformer gfx
 		[Embed(source="../../assets/map1.png")]
@@ -57,7 +63,7 @@
 		
 		// Global Level Switching
 		public static var worldNumber:int = 0;
-		public static const numberOfWorlds:int = 9;
+		public static const numberOfWorlds:int = 10;
 		
 		// devPunk - Hack to collect memory
 		public static function gcHackLog(imm:Number):void {
@@ -134,6 +140,12 @@
 			case 9:
 					gcHackLog(0.25);
 					Transition.to(TintWorld,
+					new RotoZoomOut(),
+					new RotoZoomIn());
+				break;
+			case 10:
+					gcHackLog(0.25);
+					Transition.to(LightWorld,
 					new RotoZoomOut(),
 					new RotoZoomIn());
 				break;
