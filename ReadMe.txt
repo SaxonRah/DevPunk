@@ -13,7 +13,7 @@ Press Z/X to transition through the worlds.
    10* | Tinting - Tint Sprites - Click on the Slider Bar
    11* | Tile Lighting - Tiled Lighting instructions on screen
    
-   - Every World BUT Tinting has the ablity to click and emit particles from mouse click with gravity
+   - Every World BUT Tinting & Tile Lighting - has the ablity to click and emit particles from mouse click with gravity
 
 The goal of DevPunk is to use it as a prototyping tool to test new functionality for systems in other languages. 
 DevPunk Is an attempt to combine alot of the flashpunk/punkui/ogmo level code / 
