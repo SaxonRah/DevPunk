@@ -1,16 +1,18 @@
 You can view the latest demo here [http://goo.gl/b918B]
 
 Press Z/X to transition through the worlds.
-   1*  | PunkUI Demo 
-   2*  | BlankPunkUI - BlankWorld Skin Changes dependant on Demo Skin selection box
-   3*  | MainWorld  - PunkUI Demo2 - Slightly Broken still mostly works
-   4*  | Ogmo Demo  - arrowKeys - Collect Coins & WIN!      
-   5*  | Bloom Demo - Has Outlined Text - enter toggles text bloom
-   6*  | Blur Demo - Has Outlined Text
-   7*  | Bloom N Blur Demo - Has Outlined Text - enter toggles text bloom
-   8*  | Transition - arrowKeys, space, - Move, Jump,  C will say attacking in the console
-   9*  | Tinting - Tint Sprites - Click on the Slider Bar
-   10*  | Lighting - click to reveal randomly generated blocks - Space changes color intensity
+   1*  | Lighting - click to reveal randomly generated blocks - Space changes color intensity
+   2*  | Ogmo Demo  - arrowKeys - Collect Coins & WIN!      
+   3*  | Bloom Demo - Has Outlined Text - enter toggles text bloom
+   4*  | Blur Demo - Has Outlined Text
+   5*  | Bloom N Blur Demo - Has Outlined Text - enter toggles text bloom
+   6*  | Transition - arrowKeys, space, - Move, Jump,  C will say attacking in the console
+   7*  | BlankPunkUI - BlankWorld Skin Changes dependant on Demo Skin selection box
+   8*  | PunkUI Demo 
+   9*  | MainWorld  - PunkUI Demo2 - Slightly Broken still mostly works
+   10* | Tinting - Tint Sprites - Click on the Slider Bar
+   11* | Tile Lighting - Tiled Lighting instructions on screen
+   
    - Every World BUT Tinting has the ablity to click and emit particles from mouse click with gravity
 
 The goal of DevPunk is to use it as a prototyping tool to test new functionality for systems in other languages. 
