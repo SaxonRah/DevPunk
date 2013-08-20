@@ -6,13 +6,12 @@ Press Z/X to transition through the worlds.
    3*  | Bloom Demo - Has Outlined Text - enter toggles text bloom
    4*  | Blur Demo - Has Outlined Text
    5*  | Bloom N Blur Demo - Has Outlined Text - enter toggles text bloom
-   6*  | Transition - arrowKeys, space, - Move, Jump,  C will say attacking in the console
-         7*  | BlankPunkUI - BlankWorld Skin Changes dependant on Demo Skin selection box
-         8*  | PunkUI Demo 
-         9*  | MainWorld  - PunkUI Demo2 - Slightly Broken still mostly works
-         These three are broken dude to a frontCollidePoint Error - TODO
-   7* | Tinting - Tint Sprites - Click on the Slider Bar
-   8* | Tile Lighting - Tiled Lighting instructions on screen
+   6*  | SideWorld - arrowKeys, space, - Move, Jump,  C will say attacking in the console
+   7*  | BlankPunkUI - BlankWorld Skin Changes dependant on Demo Skin selection box
+   8*  | PunkUI Demo 
+   9*  | MainWorld  - PunkUI Demo2 - Slightly Broken still mostly works
+   10* | Tinting - Tint Sprites - Click on the Slider Bar
+   11* | Tile Lighting - Tiled Lighting instructions on screen
    
    - Every World BUT Tinting & Tile Lighting - has the ablity to click and emit particles from mouse click with gravity
 
