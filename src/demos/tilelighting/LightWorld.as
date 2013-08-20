@@ -134,7 +134,7 @@ package demos.tilelighting
 			}
 			
 			// light creation
-			if (Input.mousePressedMiddle)
+			if (Input.mouseWheel)
 			{
 				_lighting.addLight(new TileLight(_cursor.tileX, _cursor.tileY, 3, 4, 1));
 				_debug.text = "R: restart\nQ/E: size\nW/S: falloff\nA/D: brightness\n1/2: global light\nL/R/U/D: pan camera\nLeft Click: place block\nRight Click: remove block\nMiddle Click: add light\n\nLIGHTS: " + _lighting.count;

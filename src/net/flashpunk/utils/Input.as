@@ -68,26 +68,6 @@
 		public static var mouseReleasedRight:Boolean = false;
 		
 		/**
-		 * If the middle mouse button is down.
-		 */
-		public static var mouseDownMiddle:Boolean = false;
-		
-		/**
-		 * If the middle mouse button is up.
-		 */
-		public static var mouseUpMiddle:Boolean = true;
-		
-		/**
-		 * If the middle mouse button was pressed this frame.
-		 */
-		public static var mousePressedMiddle:Boolean = false;
-		
-		/**
-		 * If the middle mouse button was released this frame.
-		 */
-		public static var mouseReleasedMiddle:Boolean = false;
-		
-		/**
 		 * If the mouse wheel was moved this frame.
 		 */
 		public static var mouseWheel:Boolean = false; 
@@ -144,7 +124,11 @@
 		 */
 		public static function define(name:String, ...keys):void
 		{
-			_control[name] = Vector.<int>(keys);
+			if (keys.length == 1 && (keys[0] is Array || keys[0] is Vector.<*> || keys[0] is Vector.<int> || keys[0] is Vector.<uint>)) {
+				_control[name] = Vector.<int>(keys[0]);
+			} else {
+				_control[name] = Vector.<int>(keys);
+			}
 		}
 		
 		/**
@@ -191,7 +175,7 @@
 				}
 				return false;
 			}
-			return (input < 0) ? _pressNum : _press.indexOf(input) >= 0;
+			return (input < 0) ? Boolean(_pressNum): _press.indexOf(input) >= 0;
 		}
 		
 		/**
@@ -212,7 +196,7 @@
 				}
 				return false;
 			}
-			return (input < 0) ? _releaseNum : _release.indexOf(input) >= 0;
+			return (input < 0) ? Boolean(_releaseNum) : _release.indexOf(input) >= 0;
 		}
 		
 		/**
@@ -236,8 +220,6 @@
 				FP.stage.addEventListener(MouseEvent.MOUSE_UP, onMouseUp);
 				FP.stage.addEventListener(MouseEvent.MOUSE_WHEEL, onMouseWheel);
 				FP.stage.addEventListener(MouseEvent.MOUSE_MOVE, onMouseMove);
-				FP.stage.addEventListener(MouseEvent.MIDDLE_MOUSE_DOWN, onMiddleMouseDown);
-				FP.stage.addEventListener(MouseEvent.MIDDLE_MOUSE_UP, onMiddleMouseUp);
 				FP.stage.addEventListener(MouseEvent.RIGHT_MOUSE_DOWN, onRightMouseDown);
 				FP.stage.addEventListener(MouseEvent.RIGHT_MOUSE_UP, onRightMouseUp);
 				_enabled = true;
@@ -253,9 +235,6 @@
 			_releaseNum = 0;
 			if (mousePressed) mousePressed = false;
 			if (mouseReleased) mouseReleased = false;
-			
-			if (mousePressedMiddle) mousePressedMiddle = false;
-			if (mouseReleasedMiddle) mouseReleasedMiddle = false;
 			
 			if (mousePressedRight) mousePressedRight = false;
 			if (mouseReleasedRight) mouseReleasedRight = false;
@@ -342,25 +321,6 @@
 			mouseDown = false;
 			mouseUp = true;
 			mouseReleased = true;
-		}
-		
-		/** @private Event handler for middle mouse press. */
-		private static function onMiddleMouseDown(e:MouseEvent):void
-		{
-			if (!mouseDownMiddle)
-			{
-				mouseDownMiddle = true;
-				mouseUpMiddle = false;
-				mousePressedMiddle = true;
-			}
-		}
-		
-		/** @private Event handler for middle mouse release. */
-		private static function onMiddleMouseUp(e:MouseEvent):void
-		{
-			mouseDownMiddle = false;
-			mouseUpMiddle = true;
-			mouseReleasedMiddle = true;
 		}
 		
 		/** @private Event handler for right mouse press. */

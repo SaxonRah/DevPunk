@@ -7,6 +7,7 @@
 	import net.flashpunk.Entity;
 	import net.flashpunk.FP;
 	import net.flashpunk.Graphic;
+	import net.flashpunk.graphics.Text;
 	
 	/**
 	 * Static class with access to miscellaneous drawing functions.
@@ -47,15 +48,16 @@
 		
 		/**
 		 * Draws a pixelated, non-antialiased line.
-		 * @param	x1		Starting x position.
-		 * @param	y1		Starting y position.
-		 * @param	x2		Ending x position.
-		 * @param	y2		Ending y position.
-		 * @param	color	Color of the line.
+		 * @param	x1				Starting x position.
+		 * @param	y1				Starting y position.
+		 * @param	x2				Ending x position.
+		 * @param	y2				Ending y position.
+		 * @param	color			Color of the line.
+		 * @param	overwriteAlpha	Alpha value written to these pixels: does NOT do blending. If you want to draw a semi-transparent line over some other content, you will have to either: A) use Draw.linePlus() or B) if non-antialiasing is important, render with Draw.line() to an intermediate buffer with transparency and then render that intermediate buffer.
 		 */
-		public static function line(x1:int, y1:int, x2:int, y2:int, color:uint = 0xFFFFFF, alpha:Number = 1.0):void
+		public static function line(x1:int, y1:int, x2:int, y2:int, color:uint = 0xFFFFFF, overwriteAlpha:Number = 1.0):void
 		{
-			color = (uint(alpha * 0xFF) << 24) | (color & 0xFFFFFF);
+			color = (uint(overwriteAlpha * 0xFF) << 24) | (color & 0xFFFFFF);
 			
 			// get the drawing positions
 			x1 -= _camera.x;
@@ -291,6 +293,38 @@
 			}
 			_target.draw(FP.sprite, null, null, blend);
 		}
+
+		/**
+		 * Draws an ellipse to the screen.
+		 * @param	x		X position of the ellipse's center.
+		 * @param	y		Y position of the ellipse's center.
+		 * @param	width		Width of the ellipse.
+		 * @param	height		Height of the ellipse.
+		 * @param	color		Color of the ellipse.
+		 * @param	alpha		Alpha of the ellipse.
+		 * @param	fill		If the ellipse should be filled with the color (true) or just an outline (false).
+		 * @param	thick		How thick the outline should be (only applicable when fill = false).
+		 * @param	angle		What angle (in degrees) the ellipse should be rotated.
+		 */
+		public static function ellipse(x:Number, y:Number, width:Number, height:Number, color:uint = 0xFFFFFF, alpha:Number = 1, fill:Boolean = true, thick:Number = 1, angle:Number = 0):void
+		{
+			_graphics.clear();
+			if (fill)
+			{
+				_graphics.beginFill(color & 0xFFFFFF, alpha);
+				_graphics.drawEllipse(-width / 2, -height / 2, width, height);
+				_graphics.endFill();
+			}
+			else
+			{
+				_graphics.lineStyle(thick, color & 0xFFFFFF, alpha);
+				_graphics.drawEllipse(-width / 2, -height / 2, width, height);
+			}
+			var m:Matrix = new Matrix();
+			m.rotate(angle * FP.RAD);
+			m.translate(x - _camera.x, y - _camera.y);
+			_target.draw(FP.sprite, m, null, blend);
+		}
 		
 		/**
 		 * Draws the Entity's hitbox.
@@ -394,6 +428,20 @@
 				if (addEntityPosition) graphic(e.graphic, x + e.x, y + e.y);
 				else graphic(e.graphic, x, y);
 			}
+		}
+
+		/**
+		 * Draws text.
+		 * @param	text		The text to render.
+		 * @param	x		X position.
+		 * @param	y		Y position.
+		 * @param	options		Options (see Text constructor).
+		 */
+		public static function text (text:String, x:Number = 0, y:Number = 0, options:Object = null):void
+		{
+			var textGfx:Text = new Text(text, x, y, options);
+
+			textGfx.render(_target, FP.zero, _camera);
 		}
 		
 		// Drawing information.

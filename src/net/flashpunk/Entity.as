@@ -1,9 +1,6 @@
 package net.flashpunk
 {
 	import flash.display.BitmapData;
-	import flash.events.Event;
-	import flash.events.EventDispatcher;
-	import flash.events.IEventDispatcher;
 	import flash.geom.Point;
 	import flash.geom.Rectangle;
 	import flash.utils.getDefinitionByName;
@@ -14,19 +11,8 @@ package net.flashpunk
 	/**
 	 * Main game Entity class updated by World.
 	 */
-	public class Entity extends Tweener implements IEventDispatcher
+	public class Entity extends Tweener
 	{
-		private var _dispatcher:IEventDispatcher;
-		private function get dispatcher():IEventDispatcher
-		{
-			if (_dispatcher == null)
-			{
-				_dispatcher = new EventDispatcher(this);
-			}
-			
-			return _dispatcher;
-		}
-		
 		/**
 		 * If the Entity should render.
 		 */
@@ -87,64 +73,6 @@ package net.flashpunk
 			if (mask) this.mask = mask;
 			HITBOX.assignTo(this);
 			_class = Class(getDefinitionByName(getQualifiedClassName(this)));
-		}
-		
-		/**
-		 * Registers an event listener object with an EventDispatcher object so that the listener receives notification of an event.
-		 * @param	type
-		 * @param	listener
-		 * @param	useCapture
-		 * @param	priority
-		 * @param	useWeakReference
-		 */
-		public function addEventListener(type:String, listener:Function, useCapture:Boolean = false, priority:int = 0, useWeakReference:Boolean = false):void
-		{
-			this.dispatcher.addEventListener(type, listener, useCapture, priority, useWeakReference);
-		}
-		
-		/**
-		 * Dispatches an event into the event flow.
-		 * @param	event
-		 * @return
-		 */
-		public function dispatchEvent(event:Event):Boolean
-		{
-			return this.dispatcher.dispatchEvent(event);
-		}
-		
-		/**
-		 * Checks whether the EventDispatcher object has any listeners registered for a specific type of event.
-		 * @param	type
-		 * @return
-		 */
-		public function hasEventListener(type:String):Boolean
-		{
-			if (this._dispatcher == null)
-			{
-				return false;
-			}
-			return this.dispatcher.hasEventListener(type);
-		}
-		
-		/**
-		 * Removes a listener from the EventDispatcher object.
-		 * @param	type
-		 * @param	listener
-		 * @param	useCapture
-		 */
-		public function removeEventListener(type:String, listener:Function, useCapture:Boolean = false):void
-		{
-			this.dispatcher.removeEventListener(type, listener, useCapture);
-		}
-		
-		/**
-		 * Checks whether an event listener is registered with this EventDispatcher object or any of its ancestors for the specified event type.
-		 * @param	type
-		 * @return
-		 */
-		public function willTrigger(type:String):Boolean
-		{
-			return this.dispatcher.willTrigger(type);
 		}
 		
 		/**
@@ -620,7 +548,7 @@ package net.flashpunk
 		}
 		
 		/**
-		 * Center's the Entity's origin (half width & height).
+		 * Center's the Entity's origin (half width &amp; height).
 		 */
 		public function centerOrigin():void
 		{

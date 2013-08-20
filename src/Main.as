@@ -6,7 +6,7 @@
 	
 	// Preloader
 	[Frame(factoryClass = "Preloader")]
-	[SWF(width = "800", height = "600")]
+	[SWF(width = "800", height = "600", framerate = "60")]
 
 	//----> s.start(new AnyDemoWorldNameHere);
     public class Main extends Engine {

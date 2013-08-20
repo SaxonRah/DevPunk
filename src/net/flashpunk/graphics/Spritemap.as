@@ -40,8 +40,8 @@
 			if (!frameHeight) _rect.height = this.source.height;
 			_width = this.source.width;
 			_height = this.source.height;
-			_columns = _width / _rect.width;
-			_rows = _height / _rect.height;
+			_columns = Math.ceil(_width / _rect.width);
+			_rows = Math.ceil(_height / _rect.height);
 			_frameCount = _columns * _rows;
 			this.callback = callback;
 			updateBuffer();
@@ -54,9 +54,8 @@
 		override public function updateBuffer(clearBefore:Boolean = false):void 
 		{
 			// get position of the current frame
-			_rect.x = _rect.width * _frame;
-			_rect.y = uint(_rect.x / _width) * _rect.height;
-			_rect.x %= _width;
+			_rect.x = _rect.width * (_frame % _columns);
+			_rect.y = _rect.height * uint(_frame / _columns);
 			if (_flipped) _rect.x = (_width - _rect.width) - _rect.x;
 			
 			// update the buffer
@@ -68,7 +67,9 @@
 		{
 			if (_anim && !complete)
 			{
-				_timer += (FP.timeInFrames ? _anim._frameRate : _anim._frameRate * FP.elapsed) * rate;
+				var timeAdd:Number = _anim._frameRate * rate;
+				if (! FP.timeInFrames) timeAdd *= FP.elapsed;
+				_timer += timeAdd;
 				if (_timer >= 1)
 				{
 					while (_timer >= 1)
@@ -101,13 +102,16 @@
 		 * Add an Animation.
 		 * @param	name		Name of the animation.
 		 * @param	frames		Array of frame indices to animate through.
-		 * @param	frameRate	Animation speed.
+		 * @param	frameRate	Animation speed (with variable framerate: in frames per second, with fixed framerate: in frames per frame).
 		 * @param	loop		If the animation should loop.
 		 * @return	A new Anim object for the animation.
 		 */
 		public function add(name:String, frames:Array, frameRate:Number = 0, loop:Boolean = true):Anim
 		{
-			if (_anims[name]) throw new Error("Cannot have multiple animations with the same name");
+			for (var i:int = 0; i < frames.length; i++) {
+				frames[i] %= _frameCount;
+				if (frames[i] < 0) frames[i] += _frameCount;
+			}
 			(_anims[name] = new Anim(name, frames, frameRate, loop))._parent = this;
 			return _anims[name];
 		}

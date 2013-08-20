@@ -4,14 +4,14 @@
   <output>
     <movie outputType="Application" />
     <movie input="" />
-    <movie path="bin\devPunk_1_6.swf" />
+    <movie path="bin\DevPunk.swf" />
     <movie fps="60" />
     <movie width="800" />
     <movie height="600" />
     <movie version="11" />
-    <movie minorVersion="5" />
+    <movie minorVersion="7" />
     <movie platform="Flash Player" />
-    <movie background="#000000" />
+    <movie background="#FFFFFF" />
   </output>
   <!-- Other classes to be compiled into your SWF -->
   <classpaths>
@@ -20,6 +20,7 @@
   <!-- Build options -->
   <build>
     <option accessible="False" />
+    <option advancedTelemetry="False" />
     <option allowSourcePathOverlap="False" />
     <option benchmark="False" />
     <option es="False" />
@@ -83,7 +84,7 @@
   <!-- Other project options -->
   <options>
     <option showHiddenPaths="False" />
-    <option testMovie="Unknown" />
+    <option testMovie="Default" />
   </options>
   <!-- Plugin storage -->
   <storage />
