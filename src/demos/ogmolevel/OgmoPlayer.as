@@ -6,11 +6,11 @@ package demos.ogmolevel {
 	import net.flashpunk.utils.Key;
 	import demos.Assets;
 
-	public class Player extends Entity {
+	public class OgmoPlayer extends Entity {
 		private const SPEED:int = 100;
 		private const G:Image = new Image(Assets.SPR_PLAYER);
 		
-		public function Player(x:Number, y:Number) {
+		public function OgmoPlayer(x:Number, y:Number) {
 			super(x, y);
 			
 			type = "player";
