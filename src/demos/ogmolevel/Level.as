@@ -54,7 +54,7 @@ package demos.ogmolevel {
 			list = xml.entities.player;
 			for each (element in list) {
 				// add it
-				world.add(new Player(element.@x, element.@y));
+				world.add(new OgmoPlayer(element.@x, element.@y));
 			}
 			
 			// for each coin in the xml list
