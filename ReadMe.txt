@@ -1,4 +1,4 @@
-You can view the latest demo here [http://goo.gl/b918B]
+You can view the latest demo here [http://goo.gl/CXQVgB]
 
 Press Z/X to transition through the worlds.
    1*  | Lighting - click to reveal randomly generated blocks - Space changes color intensity
