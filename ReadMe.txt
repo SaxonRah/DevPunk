@@ -35,7 +35,8 @@ Alex Larioza  -[pixelsquidgames.net]     Noel Berry    -[thenberry@gmail.com]
 MaskedPixel   -[ikonone@gmail.com]       Reiss         -[http://goo.gl/wJT9X]
 Erifdex       -[twitter.com/Erifdex]     NotARaptor    -[http://goo.gl/5r0uP]
 Time          -[c.ullmann@hotmail.com]   Deamon        -[http://goo.gl/vRxe8]
-azrafe7       -[http://goo.gl/zGzVc]
+azrafe7       -[http://goo.gl/zGzVc]     SHiLLySiT     -[http://goo.gl/h4vSDm]
+Nirvan        -[http://goo.gl/iPEoHC]
 
 Henrique Lazarini aka "Ails" [ails.deviantart.com] for RPG ICONS
 
