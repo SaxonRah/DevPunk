@@ -119,31 +119,31 @@
 					new StarIn({track:"player"}), 
 					new StarOut({track:"player"}));	
 				break;
-			//case 6:
-			//		gcHackLog(0.25);
-			//		Transition.to(Demo,
-			//		new StarIn({color:0xFF06925f, duration:2}),
-			//		new StarOut({color:0xFF06925f, duration:4}));	
-			//	break;
-			//case 7:
-			//		gcHackLog(0.25);
-			//		Transition.to(BlankWorld,
-			//		new StripeFadeOut(),
-			//		new StripeFadeIn());
-			//	break;
-			//case 8:
-			//		gcHackLog(0.25);
-			//		Transition.to(MainWorld,
-			//		new CircleIn(),
-			//		new CircleOut());
-			//	break;
 			case 6:
+					gcHackLog(0.25);
+					Transition.to(Demo,
+					new StarIn({color:0xFF06925f, duration:2}),
+					new StarOut({color:0xFF06925f, duration:4}));	
+				break;
+			case 7:
+					gcHackLog(0.25);
+					Transition.to(BlankWorld,
+					new StripeFadeOut(),
+					new StripeFadeIn());
+				break;
+			case 8:
+					gcHackLog(0.25);
+					Transition.to(MainWorld,
+					new CircleIn(),
+					new CircleOut());
+				break;
+			case 9:
 					gcHackLog(0.25);
 					Transition.to(TintWorld,
 					new RotoZoomOut(),
 					new RotoZoomIn());
 				break;
-			case 7:
+			case 10:
 					gcHackLog(0.25);
 					Transition.to(LightWorld,
 					new RotoZoomOut(),
