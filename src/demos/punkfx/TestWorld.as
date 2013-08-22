@@ -258,7 +258,7 @@ package  demos.punkfx
 			fx.active = false;
 			
 			accordion.addWindow(xmlDesc.@className);
-			win = accordion.getWindowAt(accordion.numWindows - 1);
+			win = accordion.getWindowAt(accordion.numWindows- 1);
 			win.hasMinimizeButton = true;
 			winH = win.height;
 			vbox = new VBox(win, 5, 2);

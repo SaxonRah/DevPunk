@@ -54,7 +54,7 @@ package com.bit101.components
 		//[Embed(source="../../../../assets/pf_ronda_seven.swf", symbol="PF Ronda Seven")]
 
 		// Flex 4.x sdk:
-		[Embed(source="../../../../assets/pf_ronda_seven.ttf", embedAsCFF="false", fontName="PF Ronda Seven", mimeType="application/x-font")]
+		[Embed(source="../../../../assets/pf_ronda_seven.ttf", embedAsCFF = "false", fontName = "PF Ronda Seven", mimeType = "application/x-font")]
 		// Flex 3.x sdk:
 //		[Embed(source="/assets/pf_ronda_seven.ttf", fontName="PF Ronda Seven", mimeType="application/x-font")]
 		protected var Ronda:Class;

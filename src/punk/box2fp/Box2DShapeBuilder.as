@@ -1,4 +1,4 @@
-package net.box2fp
+package punk.box2fp
 {
 	import Box2D.Collision.Shapes.b2CircleShape;
 	import Box2D.Collision.Shapes.b2PolygonShape;

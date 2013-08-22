@@ -1,4 +1,4 @@
-package net.box2fp
+package punk.box2fp
 {
 	import Box2D.Collision.b2AABB;
 	import Box2D.Common.Math.b2Vec2;
@@ -35,7 +35,7 @@ package net.box2fp
 		}
 		
 		/** The default framerate (use in FP.Engine constructor if the same) */
-		public static const DEFAULT_FRAMERATE:Number = 30;
+		public static const DEFAULT_FRAMERATE:Number = 60;
 		/** Overridable function for getting the framerate */
 		public function get framerate():Number
 		{
@@ -43,7 +43,7 @@ package net.box2fp
 		}
 		
 		/** The default pixel/metre scale */
-		private static const DEFAULT_SCALE:Number = 30; // pixels per metre
+		private static const DEFAULT_SCALE:Number = 25; // pixels per metre
 		/** Overridable function for getting the scale of the world */
 		public function get scale():Number
 		{

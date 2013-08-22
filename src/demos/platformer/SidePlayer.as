@@ -108,7 +108,7 @@ package demos.platformer {
 			if (SidePlayer_Attacking == false) {	
 				for (var loop:uint = 0; loop < SidePlayer_AttackSize; loop++ ) {
 					SidePlayer_Attacking = true;
-					FP.world.add(new GravityEmitter(x, y));
+					FP.world.add(new GravityEmitter(this.x+35, this.y+15));
 					FP.log("Attacking");
 				}
 			}

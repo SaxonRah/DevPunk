@@ -1,4 +1,4 @@
-package net.box2fp
+package punk.box2fp
 {
 	import Box2D.Collision.b2Bound;
 	import Box2D.Common.Math.b2Vec2;
@@ -9,7 +9,7 @@ package net.box2fp
 	import Box2D.Dynamics.b2FixtureDef;
 	import Box2D.Dynamics.b2World;
 	
-	import net.box2fp.graphics.SuperGraphiclist;
+	import punk.box2fp.graphics.SuperGraphiclist;
 	import net.flashpunk.Entity;
 	import net.flashpunk.FP;
 	import net.flashpunk.Graphic;

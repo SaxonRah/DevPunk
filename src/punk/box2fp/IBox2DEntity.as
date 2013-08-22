@@ -1,4 +1,4 @@
-package net.box2fp 
+package punk.box2fp 
 {
 	import net.flashpunk.Entity;
 	import net.flashpunk.Graphic;

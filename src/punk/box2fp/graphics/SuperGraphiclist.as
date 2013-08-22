@@ -1,4 +1,4 @@
-package net.box2fp.graphics
+package punk.box2fp.graphics
 {
 	import net.flashpunk.Graphic;
 	import net.flashpunk.graphics.Canvas;

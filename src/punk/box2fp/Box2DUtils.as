@@ -1,4 +1,4 @@
-package net.box2fp
+package punk.box2fp
 {
 	import Box2D.Common.Math.b2Vec2;
 

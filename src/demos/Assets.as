@@ -24,6 +24,7 @@
 	import demos.punkfx.TestWorld;
 	import demos.gridastar.gridRoom;
 	import demos.lit.LitGameWorld;
+	import demos.box2d.B2DWorld;
 	
 	public class Assets extends Object {
 		
@@ -91,7 +92,7 @@
 		
 		// Global Level Switching
 		public static var worldNumber:int = 0;
-		public static const numberOfWorlds:int = 13;
+		public static const numberOfWorlds:int = 14;
 		
 		// devPunk - Hack to collect memory
 		public static function gcHackLog(imm:Number):void {
@@ -162,6 +163,10 @@
 					Transition.to(LitGameWorld, new RotoZoomOut(), new RotoZoomIn());
 					break;
 				case 12: 
+					gcHackLog(0.25);
+					Transition.to(B2DWorld, new RotoZoomOut(), new RotoZoomIn());
+					break;	
+				case 13: 
 					gcHackLog(0.25);
 					Transition.to(TestWorld, new CircleIn(), new CircleOut());
 					break;
