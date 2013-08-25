@@ -102,6 +102,12 @@ package net.flashpunk.graphics
 			_bitmap.bitmapData = _buffer;
 		}
 		
+		/** @private Creates the buffer. */
+		public function getBuffer():BitmapData
+		{
+			return _buffer;
+		}
+		
 		/** @private Renders the image. */
 		override public function render(target:BitmapData, point:Point, camera:Point):void
 		{
