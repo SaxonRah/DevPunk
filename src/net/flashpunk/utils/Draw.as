@@ -1,6 +1,6 @@
-﻿package net.flashpunk.utils 
+package net.flashpunk.utils 
 {
-	import flash.display.*;
+  import flash.display.*;
 	import flash.geom.Matrix;
 	import flash.geom.Point;
 	import flash.geom.Rectangle;
@@ -48,16 +48,15 @@
 		
 		/**
 		 * Draws a pixelated, non-antialiased line.
-		 * @param	x1				Starting x position.
-		 * @param	y1				Starting y position.
-		 * @param	x2				Ending x position.
-		 * @param	y2				Ending y position.
-		 * @param	color			Color of the line.
-		 * @param	overwriteAlpha	Alpha value written to these pixels: does NOT do blending. If you want to draw a semi-transparent line over some other content, you will have to either: A) use Draw.linePlus() or B) if non-antialiasing is important, render with Draw.line() to an intermediate buffer with transparency and then render that intermediate buffer.
+		 * @param	x1		Starting x position.
+		 * @param	y1		Starting y position.
+		 * @param	x2		Ending x position.
+		 * @param	y2		Ending y position.
+		 * @param	color	Color of the line.
 		 */
-		public static function line(x1:int, y1:int, x2:int, y2:int, color:uint = 0xFFFFFF, overwriteAlpha:Number = 1.0):void
+		public static function line(x1:int, y1:int, x2:int, y2:int, color:uint = 0xFFFFFF, alpha:Number = 1.0):void
 		{
-			color = (uint(overwriteAlpha * 0xFF) << 24) | (color & 0xFFFFFF);
+			color = (uint(alpha * 0xFF) << 24) | (color & 0xFFFFFF);
 			
 			// get the drawing positions
 			x1 -= _camera.x;
@@ -293,7 +292,7 @@
 			}
 			_target.draw(FP.sprite, null, null, blend);
 		}
-
+ 
 		/**
 		 * Draws an ellipse to the screen.
 		 * @param	x		X position of the ellipse's center.
@@ -429,7 +428,7 @@
 				else graphic(e.graphic, x, y);
 			}
 		}
-
+ 
 		/**
 		 * Draws text.
 		 * @param	text		The text to render.
@@ -440,14 +439,274 @@
 		public static function text (text:String, x:Number = 0, y:Number = 0, options:Object = null):void
 		{
 			var textGfx:Text = new Text(text, x, y, options);
-
+ 
 			textGfx.render(_target, FP.zero, _camera);
 		}
 		
 		// Drawing information.
-		/** @private */ private static var _target:BitmapData;
-		/** @private */ private static var _camera:Point;
-		/** @private */ private static var _graphics:Graphics = FP.sprite.graphics;
-		/** @private */ private static var _rect:Rectangle = FP.rect;
+		/** @protected */ protected static var _target:BitmapData;
+		/** @protected */ protected static var _camera:Point;
+		/** @protected */ protected static var _graphics:Graphics = FP.sprite.graphics;
+		/** @protected */ protected static var _rect:Rectangle = FP.rect;
+ 
+		
+		// Some more drawing functions used by PunkByNumbers.
+		
+		/**
+		 * Draws a tiny rectangle over x, y.
+		 * @param	x			The point's x.
+		 * @param	y			The point's y.
+		 * @param	color		Color of the rectangle.
+		 * @param	alpha		Alpha of the rectangle.
+		 * @param	useCamera	Whether or not to use camera values.
+		 */
+		public static function dot(x:Number, y:Number, color:uint=0xFFFFFF, alpha:Number = 1, useCamera:Boolean = true):void 
+		{
+			if (!useCamera) {
+				x += _camera.x;
+				y += _camera.y;
+			}
+			Draw.rectPlus(x - 1, y - 1, 3, 3, color, alpha, false);
+			//Draw.linePlus(x - 5, y, x + 5, y, color, alpha);
+			//Draw.linePlus(x, y - 5, x, y + 5, color, alpha);
+		}
+ 
+		/**
+		 * Draws a smooth, antialiased line with an arrow head on the end point with optional parameters.
+		 * @param	x1			Starting x position.
+		 * @param	y1			Starting y position.
+		 * @param	x2			Ending x position.
+		 * @param	y2			Ending y position.
+		 * @param	color		Color of the line.
+		 * @param	alpha		Alpha of the line.
+		 * @param	useCamera	Whether or not to use camera values.
+		 */
+		public static function arrow(x1:Number, y1:Number, x2:Number, y2:Number, color:uint, alpha:Number = 1, useCamera:Boolean = true):void 
+		{
+			if (!useCamera) {
+				x1 += _camera.x;
+				y1 += _camera.y;
+				x2 += _camera.x;
+				y2 += _camera.y;
+			}
+			
+			var lineAngleRad:Number = FP.angle(x1, y1, x2, y2) * FP.RAD;
+			var dx:Number = x2 - x1;
+			var dy:Number = y2 - y1;
+			var len:Number = Math.sqrt(dx * dx + dy * dy);
+			if (len == 0) return;
+			
+			var arrowStartX:Number = (len-5) * Math.cos(lineAngleRad);
+			var arrowStartY:Number = (len-5) * Math.sin(lineAngleRad);
+			FP.point.x = -dy;
+			FP.point.y = dx;
+			FP.point.normalize(1);
+			
+			Draw.linePlus(x1, y1, x2, y2, color, alpha);
+			Draw.linePlus(x1 + arrowStartX + FP.point.x * 3, y1 + arrowStartY + FP.point.y * 3, x2, y2, color, alpha);
+			Draw.linePlus(x1 + arrowStartX - FP.point.x * 3, y1 + arrowStartY - FP.point.y * 3, x2, y2, color, alpha);
+		}
+		
+		/**
+		 * Draws a smooth, antialiased line with optional arrow heads at the start and end point with optional parameters.
+		 * @param	x1				Starting x position.
+		 * @param	y1				Starting y position.
+		 * @param	x2				Ending x position.
+		 * @param	y2				Ending y position.
+		 * @param	color			Color of the line.
+		 * @param	alpha			Alpha of the line.
+		 * @param	thick			Thickness of the line.
+		 * @param	arrowAngleRad	Angle (in rad) between the line and the arm of the arrow heads.
+		 * @param	arrowLength		Pixel length of each arm of the arrow heads.
+		 * @param	drawAtStart		Whether or not to draw and arrow head over the starting point.
+		 * @param	drawAtEnd		Whether or not to draw and arrow head over the ending point.
+		 */
+		public static function arrowPlus(x1:Number, y1:Number, x2:Number, y2:Number, color:uint = 0xFFFFFF, alpha:Number = 1, thick:Number = 1, arrowAngleRad:Number=Math.PI/6, arrowLength:Number=6, drawAtStart:Boolean = false, drawAtEnd:Boolean = true):void
+		{
+			if (color > 0xFFFFFF) color = 0xFFFFFF & color;
+			_graphics.clear();
+			
+			_graphics.lineStyle(thick, color, alpha, false, LineScaleMode.NORMAL, null, JointStyle.MITER);
+			
+			linePlus(x1, y1, x2, y2, color, alpha, thick);
+			
+			var dir:Point = FP.point;
+			var normal:Point = FP.point2;
+			
+			dir.x = x2 - x1;
+			dir.y = y2 - y1;
+			normal.x = -dir.y;
+			normal.y = dir.x;
+			dir.normalize(1);
+			normal.normalize(1);
+			
+			var orthoLen:Number = arrowLength * Math.sin(arrowAngleRad);
+			var paralLen:Number = arrowLength * Math.cos(arrowAngleRad);
+			
+			if (drawAtStart) {
+				linePlus(x1 + paralLen * dir.x + orthoLen * normal.x, y1 + paralLen * dir.y + orthoLen * normal.y, x1, y1, color, alpha, thick);
+				linePlus(x1 + paralLen * dir.x - orthoLen * normal.x, y1 + paralLen * dir.y - orthoLen * normal.y, x1, y1, color, alpha, thick);
+			}
+			
+			if (drawAtEnd) {
+				linePlus(x2 - paralLen * dir.x + orthoLen * normal.x, y2 - paralLen * dir.y + orthoLen * normal.y, x2, y2, color, alpha, thick);
+				linePlus(x2 - paralLen * dir.x - orthoLen * normal.x, y2 - paralLen * dir.y - orthoLen * normal.y, x2, y2, color, alpha, thick);
+			}
+		}
+		
+		/**
+		 * Draws a circular arc (using lines) with an optional arrow head at the end point.
+		 * @param	centerX			Center x of the arc.
+		 * @param	centerY			Center y of the arc.
+		 * @param	radius			Radius of the arc.
+		 * @param	startAngleRad	Starting angle (in rad) of the arc.
+		 * @param	endAngleRad		Ending angle (in rad) of the arc.
+		 * @param	color			Color of the arc.
+		 * @param	alpha			Alpha of the arc.
+		 * @param	useCamera		Whether or not to use camera values.
+		 * @param	drawArrow		Whether or not to draw an arrow head over the ending point.
+		 */
+		public static function arc(centerX:Number, centerY:Number, radius:Number, startAngleRad:Number, endAngleRad:Number, color:uint = 0xFFFFFF, alpha:Number = 1, useCamera:Boolean = true, drawArrow:Boolean = false):void 
+		{
+			var totalArcSpan:Number = Math.abs(endAngleRad - startAngleRad);
+			if (totalArcSpan > 2 * Math.PI) startAngleRad = endAngleRad -FP.sign(startAngleRad - endAngleRad) * 2 * Math.PI;
+ 
+			var steps:int = Math.abs(endAngleRad - startAngleRad) * 10;
+			steps = steps || 1;
+			var angleStep:Number = (endAngleRad - startAngleRad) / steps;
+			
+			if (!useCamera) {
+				centerX += _camera.x;
+				centerY += _camera.y;
+			}
+				
+			var x1:Number = centerX + Math.cos(startAngleRad + i * angleStep) * radius;
+			var y1:Number = centerY + Math.sin(startAngleRad + i * angleStep) * radius;
+			var x2:Number;
+			var y2:Number;
+			
+			for (var i:int = 0; i < steps; i++) {
+				var angle:Number = startAngleRad + (i+1) * angleStep;
+				x2 = centerX + Math.cos(angle) * radius;
+				y2 = centerY + Math.sin(angle) * radius;
+				if (i == (steps-1) && drawArrow)
+					arrow(x1, y1, x2, y2, color, alpha);
+				else
+					Draw.linePlus(x1, y1, x2, y2, color, alpha);
+				x1 = x2;
+				y1 = y2;
+			}
+		}
+		
+		/**
+		 * Draws a circular arc (using bezier curves) with an optional arrow head on the end point and other optional values.
+		 * @param	centerX			Center x of the arc.
+		 * @param	centerY			Center y of the arc.
+		 * @param	radius			Radius of the arc.
+		 * @param	startAngleRad	Starting angle (in rad) of the arc.
+		 * @param	endAngleRad		Ending angle (in rad) of the arc.
+		 * @param	color			Color of the arc.
+		 * @param	alpha			Alpha of the arc.
+		 * @param	fill			If the arc should be filled with the color (true) or just an outline (false).
+		 * @param	thick			Thickness of the outline (only applicable when fill = false).
+		 * @param	drawArrow		Whether or not to draw an arrow head over the ending point.
+		 */
+		public static function arcPlus(centerX:Number, centerY:Number, radius:Number, startAngleRad:Number, endAngleRad:Number, color:uint = 0xFFFFFF, alpha:Number = 1, fill:Boolean = true, thick:Number = 1, drawArrow:Boolean = false):void
+		{
+			if (color > 0xFFFFFF) color = 0xFFFFFF & color;
+			_graphics.clear();
+			
+			var totalArcSpan:Number = Math.abs(endAngleRad - startAngleRad);
+			if (totalArcSpan > 2 * Math.PI) startAngleRad = endAngleRad -FP.sign(endAngleRad - startAngleRad) * 2 * Math.PI;
+			totalArcSpan = Math.abs(endAngleRad - startAngleRad);
+			
+			var steps:Number = Math.floor(totalArcSpan / (Math.PI / 4))+1;
+			var angleStep:Number = (endAngleRad-startAngleRad) / (2 * steps);
+			var controlRadius:Number = radius / Math.cos(angleStep);
+ 
+			var startX:Number = centerX + Math.cos(startAngleRad) * radius
+			var startY:Number = centerY + Math.sin(startAngleRad) * radius;
+			
+			if (fill) {
+				_graphics.beginFill(color, alpha);
+				_graphics.moveTo(centerX, centerY);
+				_graphics.lineTo(startX, startY);
+			} else {
+				_graphics.lineStyle(thick, color, alpha, false, LineScaleMode.NORMAL, null, JointStyle.MITER);
+				_graphics.moveTo(startX, startY);
+			}
+ 
+			var controlPoint:Point = FP.point;
+			var anchorPoint:Point = FP.point2;
+ 
+			for(var i:Number=0; i<steps; ++i)
+			{
+				endAngleRad = startAngleRad + angleStep;
+				startAngleRad = endAngleRad + angleStep;
+				
+				controlPoint.x = centerX + Math.cos(endAngleRad) * controlRadius;
+				controlPoint.y = centerY + Math.sin(endAngleRad) * controlRadius;
+				
+				anchorPoint.x = centerX + Math.cos(startAngleRad) * radius;
+				anchorPoint.y = centerY + Math.sin(startAngleRad) * radius;
+				
+				_graphics.curveTo(controlPoint.x, controlPoint.y, anchorPoint.x, anchorPoint.y);
+			}
+			
+			if (fill) _graphics.lineTo(centerX, centerY);
+			
+			FP.matrix.identity();
+			FP.matrix.translate(-_camera.x, -_camera.y);
+			_target.draw(FP.sprite, FP.matrix, null, blend);
+			
+			if (drawArrow) {
+				FP.point.x = anchorPoint.x - centerX;
+				FP.point.y = anchorPoint.y - centerY;
+				FP.point.normalize(1);
+				Draw.arrowPlus(anchorPoint.x + FP.sign(angleStep) * FP.point.y, anchorPoint.y - FP.sign(angleStep) * FP.point.x, anchorPoint.x, anchorPoint.y, color, alpha, thick);
+			}
+		}
+			
+		/**
+		 * Draws a rotated rectangle (with optional pivot point).
+		 * @param	x			X position of the rectangle.
+		 * @param	y			Y position of the rectangle.
+		 * @param	width		Width of the rectangle.
+		 * @param	height		Height of the rectangle.
+		 * @param	color		Color of the rectangle.
+		 * @param	alpha		Alpha of the rectangle.
+		 * @param	fill		If the rectangle should be filled with the color (true) or just an outline (false).
+		 * @param	thick		How thick the outline should be (only applicable when fill = false).
+		 * @param	radius		Round rectangle corners by this amount.
+		 * @param	angleRad	Rotation of the rectangle (in rad).
+		 * @param	pivotX		X position around which the rotation should be performed (defaults to 0).
+		 * @param	pivotX		Y position around which the rotation should be performed (defaults to 0).
+		 */
+		public static function rotatedRect(x:Number, y:Number, width:Number, height:Number, color:uint = 0xFFFFFF, alpha:Number = 1, fill:Boolean = true, thick:Number = 1, radius:Number = 0, angleRad:Number=0, pivotX:Number=0, pivotY:Number=0):void
+		{
+			if (color > 0xFFFFFF) color = 0xFFFFFF & color;
+			_graphics.clear();
+			
+			if (fill) {
+				_graphics.beginFill(color, alpha);
+			} else {
+				_graphics.lineStyle(thick, color, alpha, false, LineScaleMode.NORMAL, null, JointStyle.MITER);
+			}
+			
+			if (radius <= 0) {
+				_graphics.drawRect(0, 0, width, height);
+			} else {
+				_graphics.drawRoundRect(0, 0, width, height, radius);
+			}
+			
+			FP.matrix.identity();
+			FP.matrix.translate(-pivotX, -pivotY);
+			FP.matrix.rotate(angleRad);
+			//FP.matrix.translate(pivotX + x - _camera.x, pivotY + y - _camera.y);
+			FP.matrix.tx += -FP.matrix.tx + x - _camera.x;	// <= that -tx was the culprit here (and not -pivotX as I was assuming)
+			FP.matrix.ty += -FP.matrix.ty + y - _camera.y;	// <= that -ty was the culprit here (and not -pivotY as I was assuming)
+ 
+			_target.draw(FP.sprite, FP.matrix, null, blend);
+		}
 	}
 }
