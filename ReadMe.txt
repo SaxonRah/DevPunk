@@ -21,7 +21,8 @@ Press Z/X to transition through the worlds.
 The goal of DevPunk is to use it as a prototyping tool to test new functionality for systems in other languages. 
 DevPunk Is an attempt to combine alot of the flashpunk/punkui/ogmo level code / 
 snippets from the fourms and blogs around the net into a gigantic lib to start from for noobies like myself. :] 
-Sorry if there are deleted comments or some changed code in some files. - 
+Sorry if there are deleted comments or some changed code in some files. - I have scripts that code format and sometimes it bugs out.
+if you know of a file thats been changed badly let me know
 This is not a final product im not responsible for damages ect..ect..
 I could careless about legal stuff, I'm not trying to make money or destroy your pc. 
 I'm doing this as a side project so don't expect a whole lot.
